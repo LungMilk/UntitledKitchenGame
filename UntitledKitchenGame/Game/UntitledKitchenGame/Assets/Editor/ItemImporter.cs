@@ -18,10 +18,13 @@ public class ItemImporter : ScriptableObject
         var excel = new ExcelImporter(excelFilePath);
         var items = DataHelper.GetAllAssetsOfType<FoodItem>();
 
-        Debug.Log("Finished Importing potions from excel");
+        ImportItems("Food", excel, items);
+
+        Debug.Log("Finished Importing items from excel");
     }
     void ImportItems(string category,ExcelImporter excel, Dictionary<string,FoodItem> items)
     {
+        //how can i restrict where these items are spawned
         if (!excel.TryGetTable(category, out var table))
         {
             Debug.LogError($"Could not find {category} table in {excelFilePath}.");
@@ -38,10 +41,10 @@ public class ItemImporter : ScriptableObject
             if (string.IsNullOrWhiteSpace(item.displayName))
                 item.displayName = name;
 
-            if (table.TryGetEnum<FoodType>(row, "Rarity", out var type))
+            if (table.TryGetEnum<FoodType>(row, "Type", out var type))
                 item.type = type;
             //updating the items asset cost by grabbbing the value from the excel table in the row in the for loop, getting the info in the Cost column
-            item.pointValue = table.GetValue<int>(row, "points");
+            item.pointValue = table.GetValue<int>(row, "Points");
 
             item.rarity = table.GetValue<int>(row, "Rarity");
             //this might need to be modified to have a more restricted and changeable tag enum data thingy
