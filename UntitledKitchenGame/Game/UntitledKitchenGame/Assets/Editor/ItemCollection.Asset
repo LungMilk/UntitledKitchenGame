@@ -25,4 +25,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ce5060d9a657fb45bd76ee5f79f71bc, type: 2}
   - {fileID: 11400000, guid: b57c58f9f19b0754fb2a60639665ef89, type: 2}
   - {fileID: 11400000, guid: fe46b2097afe9da4a9715792ef059581, type: 2}
-  onlySelect: 3
+  onlySelect: 0

@@ -9,6 +9,7 @@ public class ItemCollection : ScriptableObject
 
     //I think I want boolean values of the type to add more customization but rn it works
     public type onlySelect = new type();
+    //maybe we could have the variables change as well depending on what kind of object it is?
     public enum type
     {
         Unlisted,
@@ -17,12 +18,10 @@ public class ItemCollection : ScriptableObject
         Veggie,
         Fish
     }
-
-
     //how can I get this item to automatically collect the items from the files.
     [ContextMenu("Select Item")]
     //could feed it a colleciton of an item data base but right now let us randomize it.
-    FoodItem SelectRandomItem()
+    public FoodItem SelectRandomItem()
     {
         //not looking for an index looking for the rarity.
         int randomItem = Random.Range(0, 101);
@@ -35,12 +34,12 @@ public class ItemCollection : ScriptableObject
             {
                 if (item.type.ToString() == onlySelect.ToString())
                 {
-                    Debug.Log(item.name);
+                    //Debug.Log(item.name);
                     return item;
 
                 }else if (onlySelect == type.Unlisted)
                 {
-                    Debug.Log(item.name);
+                    //Debug.Log(item.name);
                     return item;
                 }
             }
