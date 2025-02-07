@@ -27,6 +27,13 @@ public class OrderGenerator : MonoBehaviour
         Veggie,
         Fish
     }
+
+    public void GenerateOrder()
+    {
+        PopulateUI();
+        PopulateOrder();
+    }
+    //no longer needed but why not keep them
     [ContextMenu("Populate UI")]
     void PopulateUI()
     {
@@ -43,7 +50,10 @@ public class OrderGenerator : MonoBehaviour
         
         for(int i = 0; i < orderText.Count; i++)
         {
-            orderText[i].text = foodItems[i].displayName;
+            if (foodItems[i] == null) { orderText[i].gameObject.SetActive(false); } 
+            else { orderText[i].gameObject.SetActive(true); 
+                orderText[i].text = foodItems[i].displayName; }
+            
         }
     }
     // Start is called before the first frame update
