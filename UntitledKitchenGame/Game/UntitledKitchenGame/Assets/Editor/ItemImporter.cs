@@ -1,3 +1,4 @@
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
 using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
 using System;
 using System.Collections;
@@ -10,6 +11,7 @@ public class ItemImporter : ScriptableObject
 {
     [Tooltip("Path to Excel file to import. Use forward slashes")]
     public string excelFilePath = "Editor/Items.xlsx";
+
 
     [ContextMenu("Import")]
     public void Import()
@@ -24,6 +26,10 @@ public class ItemImporter : ScriptableObject
     }
     void ImportItems(string category,ExcelImporter excel, Dictionary<string,FoodItem> items)
     {
+        //this did it apparently
+        var itemCollectionObject = DataHelper.GetAllAssetsOfType<ItemCollection>();
+        var itemCollectionAsset = DataHelper.GetOrCreateAsset("ItemCollection", itemCollectionObject, "Editor");
+
         //how can i restrict where these items are spawned
         if (!excel.TryGetTable(category, out var table))
         {
@@ -50,6 +56,14 @@ public class ItemImporter : ScriptableObject
             //this might need to be modified to have a more restricted and changeable tag enum data thingy
             item.stages = table.GetValue<int>(row, "Stages");
 
+            //it seems to not work if the collection doe snot exist.
+            if (!itemCollectionAsset.Items.Contains(item))
+            {
+                itemCollectionAsset.Items.Add(item);
+            }
+
         }
+
+         
     }
 }

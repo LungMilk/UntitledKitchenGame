@@ -16,5 +16,5 @@ MonoBehaviour:
   mesh: {fileID: 0}
   type: 1
   pointValue: 10
-  rarity: 100
+  rarity: 70
   stages: 1

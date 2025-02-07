@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9c78b14d8de0941837aba74387f47c, type: 3}
-  m_Name: Salmon
+  m_Name: Tuna
   m_EditorClassIdentifier: 
-  displayName: Salmon
+  displayName: Tuna
   mesh: {fileID: 0}
   type: 4
   pointValue: 10
-  rarity: 10
+  rarity: 20
   stages: 1
