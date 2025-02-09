@@ -74,7 +74,7 @@ public class OrderGenerator : MonoBehaviour
             foodItems.Add(selectedItem);
         }
     }
-    FoodItem SelectRandomItem()
+    public FoodItem SelectRandomItem()
     {
         //not looking for an index looking for the rarity.
         int randomItem = Random.Range(0, 101);
