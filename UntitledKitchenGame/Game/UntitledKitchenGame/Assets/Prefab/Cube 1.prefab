@@ -288,8 +288,8 @@ GameObject:
   - component: {fileID: 6104486943015669133}
   - component: {fileID: 752976548247773561}
   - component: {fileID: 949785216317504850}
-  - component: {fileID: 3244074837047452112}
   - component: {fileID: 2425795573292957298}
+  - component: {fileID: 1827854803912933816}
   m_Layer: 0
   m_Name: Cube 1
   m_TagString: Untagged
@@ -364,27 +364,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3244074837047452112
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2292728504458958124}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2425795573292957298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,6 +381,7 @@ MonoBehaviour:
   - {fileID: 436466666992635364}
   - {fileID: 3280251519060096076}
   - {fileID: 498243878353066124}
+  orderImages: []
   itemDatabase: {fileID: 11400000, guid: 9e00be0fd5fa88c45b36a2ce33454f0a, type: 2}
   foodItems:
   - {fileID: 11400000, guid: 4d345cc9a1cb2ab42bc8e4cf50c924a4, type: 2}
@@ -409,6 +389,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c138e7e638be2349a13e3208f201d3c, type: 2}
   itemMax: 3
   onlySelect: 0
+--- !u!65 &1827854803912933816
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2292728504458958124}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6036657, y: 0.9999999, z: 2.9382455}
+  m_Center: {x: -0.084431835, y: 0, z: -0.9691245}
 --- !u!1 &3809886395181780283
 GameObject:
   m_ObjectHideFlags: 0

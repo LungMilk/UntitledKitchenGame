@@ -32,7 +32,10 @@ public class OrderGenerator : MonoBehaviour
     {
         GenerateOrder();
     }
-
+    private void Update()
+    {
+        PopulateUI();
+    }
     public void GenerateOrder()
     {
         PopulateUI();
@@ -95,6 +98,25 @@ public class OrderGenerator : MonoBehaviour
             
             foodItems.Add(selectedItem);
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        //currently it is not grabbing the objects collider
+        //Debug.Log(other.name);
+        CheckItemSubmission(other.gameObject);
+    }
+    public void CheckItemSubmission(GameObject recievedObject)
+    {
+        //arugably we could take
+        foreach(FoodItem item in foodItems)
+        {
+            if(item.foodObject = recievedObject)
+            {
+                Debug.Log("They are the correct item");
+                foodItems.Remove(item);
+            }
+        }
+        
     }
     public FoodItem SelectRandomItem()
     {

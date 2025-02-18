@@ -29,8 +29,9 @@ public class ItemSpawner : MonoBehaviour
 
     protected virtual void spawnObjects()
     {
+        //spawning seems to have a weird offset
         float scalar = Random.Range(0.1f, 0.9f);
-        print(scalar);
+        //print(scalar);
         //they need to spawn within a set height of the conveyor belt.\
         float distX = upperSpawnLimit.position.x - lowerSpawnLimit.position.x;
         float distY = upperSpawnLimit.position.y - lowerSpawnLimit.position.y;
@@ -42,7 +43,7 @@ public class ItemSpawner : MonoBehaviour
 
         FoodItem spawnedItem = orderGenerator.SelectRandomItem();
 
-        Instantiate(spawnedItem, spawnPos, Quaternion.identity);
-        Debug.Log(spawnedItem.displayName);
+        Instantiate(spawnedItem.foodObject, spawnPos, Quaternion.identity);
+        //Debug.Log(spawnedItem.displayName);
     }
 }
