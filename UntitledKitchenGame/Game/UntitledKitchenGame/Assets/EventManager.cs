@@ -21,32 +21,35 @@ public class EventManager : MonoBehaviour
     public float timer;
     void Start()
     {
-            // Convert time values for all events in the sequence
-            foreach (TimedEvent timedEvent in eventSequence)
+        // Convert time values for all events in the sequence
+        foreach (TimedEvent timedEvent in eventSequence)
+        {
+            // Convert time based on the timeType (minutes to seconds)
+            if (timedEvent.timeType == TimedEvent.TimeType.minutes)
             {
-                // Convert time based on the timeType (minutes to seconds)
-                if (timedEvent.timeType == TimedEvent.TimeType.minutes)
-                {
-                    timedEvent.timeToInvoke *= 60; // Convert to seconds
-                }
+                timedEvent.timeToInvoke *= 60; // Convert to seconds
             }
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
         //first things first I need a timer;
         timer += Time.deltaTime;
-        
-            foreach (TimedEvent timedEvent in eventSequence)
+        if(eventSequence == null)
+        {
+            Debug.Log("Event sequence has no events");
+            return;
+        }
+
+        foreach (TimedEvent timedEvent in eventSequence)
+        {
+
+            if (timer >= timedEvent.timeToInvoke && !timedEvent.hasPerformed)
             {
-               
-               if (timer >= timedEvent.timeToInvoke && !timedEvent.hasPerformed)
-               {
-                   timedEvent.eventToInvoke.Invoke();
+                timedEvent.eventToInvoke?.Invoke();
                 timedEvent.hasPerformed = true;
-               }
             }
+        }
     }
 }
 [System.Serializable]
@@ -60,10 +63,6 @@ public class TimedEvent
     public enum TimeType { minutes,seconds}
     public TimeType timeType;
     public UnityEvent eventToInvoke;  // The UnityEvent to invoke at the specified time
-    public bool hasPerformed;
-    public void Start()
-    {
-        hasPerformed = false;
-    }
+    public bool hasPerformed = false;
 }
 
