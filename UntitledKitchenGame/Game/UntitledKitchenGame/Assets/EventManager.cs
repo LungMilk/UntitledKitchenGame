@@ -21,6 +21,9 @@ public class EventManager : MonoBehaviour
     public float timer;
     void Start()
     {
+        //instantiate an event for when the game will end or what to show.
+        //as well as what will activate when they do not successfully make something happen.
+
         // Convert time values for all events in the sequence
         foreach (TimedEvent timedEvent in eventSequence)
         {
