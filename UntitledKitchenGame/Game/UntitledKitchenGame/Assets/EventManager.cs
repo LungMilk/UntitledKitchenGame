@@ -31,15 +31,15 @@ public class EventManager : MonoBehaviour
         timer += Time.deltaTime;
         
             // Example: Loop through events and invoke them based on their scheduled time
-            foreach (var timedEvent in eventSequence)
+            foreach (TimedEvent timedEvent in eventSequence)
             {
                // In this case, you'll need to implement a way to invoke based on time
-               if (timer >= timedEvent.timeToInvoke) // Example of triggering an event based on time
+               if (timer >= timedEvent.timeToInvoke && !timedEvent.hasPerformed) // Example of triggering an event based on time
                {
                    timedEvent.eventToInvoke.Invoke();
+                timedEvent.hasPerformed = true;
                }
             }
-        
     }
 }
 [System.Serializable]
@@ -49,11 +49,14 @@ public class TimedEvent
     //public string eventName;  // Name of the event
     [Header("In Seconds")]
     public float timeToInvoke;  // Time at which to invoke the event
+    //currently it is just in seconds and the minute switch doesnt work.
     public enum TimeType { minutes,seconds}
     public TimeType timeType;
     public UnityEvent eventToInvoke;  // The UnityEvent to invoke at the specified time
+    public bool hasPerformed;
     public void Start()
     {
+        hasPerformed = false;
         if (timeType == TimeType.minutes)
         {
             timeToInvoke = timeToInvoke* 60;
