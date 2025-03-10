@@ -21,7 +21,15 @@ public class EventManager : MonoBehaviour
     public float timer;
     void Start()
     {
-        
+            // Convert time values for all events in the sequence
+            foreach (TimedEvent timedEvent in eventSequence)
+            {
+                // Convert time based on the timeType (minutes to seconds)
+                if (timedEvent.timeType == TimedEvent.TimeType.minutes)
+                {
+                    timedEvent.timeToInvoke *= 60; // Convert to seconds
+                }
+            }
     }
 
     // Update is called once per frame
@@ -30,11 +38,10 @@ public class EventManager : MonoBehaviour
         //first things first I need a timer;
         timer += Time.deltaTime;
         
-            // Example: Loop through events and invoke them based on their scheduled time
             foreach (TimedEvent timedEvent in eventSequence)
             {
-               // In this case, you'll need to implement a way to invoke based on time
-               if (timer >= timedEvent.timeToInvoke && !timedEvent.hasPerformed) // Example of triggering an event based on time
+               
+               if (timer >= timedEvent.timeToInvoke && !timedEvent.hasPerformed)
                {
                    timedEvent.eventToInvoke.Invoke();
                 timedEvent.hasPerformed = true;
@@ -57,13 +64,6 @@ public class TimedEvent
     public void Start()
     {
         hasPerformed = false;
-        if (timeType == TimeType.minutes)
-        {
-            timeToInvoke = timeToInvoke* 60;
-        }else if (timeType == TimeType.seconds)
-        {
-            timeToInvoke = timeToInvoke;
-        }
     }
 }
 
