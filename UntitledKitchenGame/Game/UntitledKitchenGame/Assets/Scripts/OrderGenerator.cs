@@ -50,6 +50,7 @@ public class OrderGenerator : MonoBehaviour
     [ContextMenu("Populate UI")]
     void PopulateUI()
     {
+        //need to add null edge cases
         if (orderCanvas == null || orderText == null || orderImages ==null) 
         { 
             orderCanvas = this.GetComponentInChildren<Canvas>();
@@ -103,6 +104,15 @@ public class OrderGenerator : MonoBehaviour
             
             foodItems.Add(selectedItem);
         }
+
+        var data = new ItemSubmitData()
+        {
+            requiredObject = foodItems[0].name,
+            requiredObject1 = foodItems[1].name,
+            requiredObject2 = foodItems[2].name,
+        };
+        TelemetryLogger.Log(this, "order generated", data);
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -110,16 +120,30 @@ public class OrderGenerator : MonoBehaviour
         //Debug.Log(other.name);
         CheckItemSubmission(other.gameObject);
     }
+    //please convert the object so it is visible from teh save file.
+    [System.Serializable]
+    public struct ItemSubmitData
+    {
+        public string objectName;
+        public string requiredObject1;
+        public string requiredObject2;
+        public string requiredObject;
+    }
     public void CheckItemSubmission(GameObject recievedObject)
     {
+        TelemetryLogger.Log(this, "Item Submitted");
         //arugably we could take
         foreach(FoodItem item in foodItems)
         {
             if(item.foodObject = recievedObject)
             {
-                Debug.Log("They are the correct item");
+                TelemetryLogger.Log(this, "Correct Submission");
                 scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
+            }
+            else
+            {
+                TelemetryLogger.Log(this, "Incorrect Submission",foodItems);
             }
         }
         
