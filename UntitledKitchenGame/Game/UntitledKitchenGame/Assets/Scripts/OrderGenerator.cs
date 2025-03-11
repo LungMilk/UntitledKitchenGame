@@ -51,17 +51,18 @@ public class OrderGenerator : MonoBehaviour
     void PopulateUI()
     {
         //need to add null edge cases
+        //or my index is getting out of bounds and so every for loop needs a -1
         if (orderCanvas == null || orderText == null || orderImages ==null) 
         { 
             orderCanvas = this.GetComponentInChildren<Canvas>();
             Image[] tempImageList = this.GetComponentsInChildren<Image>();
-            for (int i = 0; i < itemMax; i++)
+            for (int i = 0; i < itemMax-1; i++)
             {
                 orderImages.Add(tempImageList[i]);
             }
             TextMeshProUGUI[] tempList = this.GetComponentsInChildren<TextMeshProUGUI>();
 
-            for (int i = 0; i < itemMax; i++)
+            for (int i = 0; i < itemMax-1; i++)
             {
                 orderText.Add(tempList[i]);
             }
@@ -69,14 +70,14 @@ public class OrderGenerator : MonoBehaviour
             
         }
         
-        for(int i = 0; i < orderText.Count; i++)
+        for(int i = 0; i < orderText.Count-1; i++)
         {
-            if (foodItems[i] == null) { orderText[i].gameObject.SetActive(false); } 
+            if (foodItems[i] == null && orderText[i] != null) { orderText[i].gameObject.SetActive(false); } 
             else { orderText[i].gameObject.SetActive(true); 
                 orderText[i].text = foodItems[i].displayName; }
             
         }
-        for (int i = 0; i < orderImages.Count; i++)
+        for (int i = 0; i < orderImages.Count - 1; i++)
         {
             if (foodItems[i] == null) { orderImages[i].gameObject.SetActive(false); }
             else
@@ -98,20 +99,22 @@ public class OrderGenerator : MonoBehaviour
             foodItems.Clear ();
         }
 
-        for (int i = 0; i < itemMax; i++)
+        for (int i = 0; i < itemMax - 1; i++)
         {
             var selectedItem = SelectRandomItem();
             
             foodItems.Add(selectedItem);
         }
-
-        var data = new ItemSubmitData()
+        if (foodItems.Count >= 3)
         {
-            requiredObject = foodItems[0].name,
-            requiredObject1 = foodItems[1].name,
-            requiredObject2 = foodItems[2].name,
-        };
-        TelemetryLogger.Log(this, "order generated", data);
+            var data = new ItemSubmitData()
+            {
+                requiredObject = foodItems[0].name,
+                requiredObject1 = foodItems[1].name,
+                requiredObject2 = foodItems[2].name,
+            };
+            TelemetryLogger.Log(this, "order generated", data);
+        }
 
     }
     private void OnTriggerEnter(Collider other)
