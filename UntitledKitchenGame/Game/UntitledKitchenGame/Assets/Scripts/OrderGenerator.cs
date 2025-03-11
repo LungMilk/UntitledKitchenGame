@@ -56,13 +56,13 @@ public class OrderGenerator : MonoBehaviour
         { 
             orderCanvas = this.GetComponentInChildren<Canvas>();
             Image[] tempImageList = this.GetComponentsInChildren<Image>();
-            for (int i = 0; i < itemMax-1; i++)
+            for (int i = 0; i < itemMax; i++)
             {
                 orderImages.Add(tempImageList[i]);
             }
             TextMeshProUGUI[] tempList = this.GetComponentsInChildren<TextMeshProUGUI>();
 
-            for (int i = 0; i < itemMax-1; i++)
+            for (int i = 0; i < itemMax; i++)
             {
                 orderText.Add(tempList[i]);
             }
@@ -99,7 +99,7 @@ public class OrderGenerator : MonoBehaviour
             foodItems.Clear ();
         }
 
-        for (int i = 0; i < itemMax - 1; i++)
+        for (int i = 0; i < itemMax; i++)
         {
             var selectedItem = SelectRandomItem();
             
