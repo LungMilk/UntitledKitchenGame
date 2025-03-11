@@ -105,16 +105,13 @@ public class OrderGenerator : MonoBehaviour
             
             foodItems.Add(selectedItem);
         }
-        if (foodItems.Count >= 3)
+        var data = new ItemSubmitData()
         {
-            var data = new ItemSubmitData()
-            {
-                requiredObject = foodItems[0].name,
-                requiredObject1 = foodItems[1].name,
-                requiredObject2 = foodItems[2].name,
-            };
-            TelemetryLogger.Log(this, "order generated", data);
-        }
+            requiredObject = foodItems[0].name,
+            requiredObject1 = foodItems[1].name,
+            requiredObject2 = foodItems[2].name,
+        };
+        TelemetryLogger.Log(this, "order generated", data);
 
     }
     private void OnTriggerEnter(Collider other)
@@ -134,19 +131,27 @@ public class OrderGenerator : MonoBehaviour
     }
     public void CheckItemSubmission(GameObject recievedObject)
     {
-        TelemetryLogger.Log(this, "Item Submitted");
+        //TelemetryLogger.Log(this, "Item Submitted");
         //arugably we could take
         foreach(FoodItem item in foodItems)
         {
             if(item.foodObject = recievedObject)
             {
-                TelemetryLogger.Log(this, "Correct Submission");
+                var data = new ItemSubmitData()
+                {
+                    objectName = recievedObject.name
+                };
+                TelemetryLogger.Log(this, "Correct Submission", data);
                 scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
             }
             else
             {
-                TelemetryLogger.Log(this, "Incorrect Submission",foodItems);
+                var data = new ItemSubmitData()
+                {
+                    objectName = recievedObject.name
+                };
+                TelemetryLogger.Log(this, "Incorrect Submission", data);
             }
         }
         
