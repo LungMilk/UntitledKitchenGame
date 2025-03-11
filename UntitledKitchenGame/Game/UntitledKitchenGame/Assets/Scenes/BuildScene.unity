@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2292728504458958124, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: m_Name
-      value: Cube 1 (1)
+      value: order generator
       objectReference: {fileID: 0}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
@@ -2057,7 +2057,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2292728504458958124, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: m_Name
-      value: Cube 1
+      value: orderGenerator2
       objectReference: {fileID: 0}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
@@ -3323,7 +3323,7 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     - target: {fileID: 2292728504458958124, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: m_Name
-      value: Cube
+      value: OrderGenerator2
       objectReference: {fileID: 0}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
