@@ -2342,6 +2342,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0a48b74a5fafb8743b27f35be1f0d234, type: 3}
   m_PrefabInstance: {fileID: 1575931290}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1606778931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606778933}
+  - component: {fileID: 1606778932}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1606778932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606778931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dfd1ae6dc55b3347ae227bf9845811f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  quota: 0
+--- !u!4 &1606778933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606778931}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1737386652 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3420116713397415527, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
@@ -3165,6 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventSequence:
   - timeToInvoke: 0
+    timeType: 0
     eventToInvoke:
       m_PersistentCalls:
         m_Calls:
@@ -3180,7 +3227,9 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    hasPerformed: 0
   - timeToInvoke: 0
+    timeType: 0
     eventToInvoke:
       m_PersistentCalls:
         m_Calls:
@@ -3196,6 +3245,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    hasPerformed: 0
   timer: 0
 --- !u!4 &2059959632
 Transform:
@@ -3415,3 +3465,4 @@ SceneRoots:
   - {fileID: 435599542}
   - {fileID: 421042406}
   - {fileID: 2059959632}
+  - {fileID: 1606778933}

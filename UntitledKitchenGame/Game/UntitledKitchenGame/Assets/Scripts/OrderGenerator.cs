@@ -16,6 +16,8 @@ public class OrderGenerator : MonoBehaviour
     public ItemCollection itemDatabase;
 
     public List<FoodItem> foodItems;
+    //being a prefab means the object cannot be scene referenced so we gots to find a score manager
+    public ScoreManager scoreManage;
     public int itemMax = 3;
 
     public type onlySelect = new type();
@@ -30,6 +32,9 @@ public class OrderGenerator : MonoBehaviour
     }
     public void Start()
     {
+        GameObject tempObj;
+        tempObj = GameObject.Find("ScoreManager");
+        scoreManage = tempObj.GetComponent<ScoreManager>();
         GenerateOrder();
     }
     private void Update()
@@ -113,6 +118,7 @@ public class OrderGenerator : MonoBehaviour
             if(item.foodObject = recievedObject)
             {
                 Debug.Log("They are the correct item");
+                scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
             }
         }
