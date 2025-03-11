@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour
 {
@@ -19,11 +20,12 @@ public class EventManager : MonoBehaviour
     //this kinda has its own event sequence
     public List<TimedEvent> eventSequence;
     public float timer;
+    public ScoreManager scoreManager;
     void Start()
     {
         //instantiate an event for when the game will end or what to show.
         //as well as what will activate when they do not successfully make something happen.
-
+        scoreManager = this.GetComponent<ScoreManager>();
         // Convert time values for all events in the sequence
         foreach (TimedEvent timedEvent in eventSequence)
         {
@@ -53,6 +55,12 @@ public class EventManager : MonoBehaviour
                 timedEvent.hasPerformed = true;
             }
         }
+    }
+    public void EndGame()
+    {
+        //game end stuff
+        print("game End");
+        Application.Quit();
     }
 }
 [System.Serializable]
