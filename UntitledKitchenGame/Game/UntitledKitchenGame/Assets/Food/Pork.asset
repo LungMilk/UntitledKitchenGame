@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Pork
   displayImage: {fileID: 21300000, guid: 3e64b7d108fcd1047a0ebc761afcf95b, type: 3}
-  mesh: {fileID: 0}
+  foodObject: {fileID: 0}
   type: 1
-  pointValue: 10
+  pointValue: 15
   rarity: 80
   stages: 1
