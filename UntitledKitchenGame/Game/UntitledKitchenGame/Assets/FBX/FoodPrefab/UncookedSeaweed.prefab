@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2938520471810308487}
   - component: {fileID: 1090802968433233229}
   - component: {fileID: 5399553276430928499}
+  - component: {fileID: 5490841257232509883}
   m_Layer: 0
   m_Name: UncookedSeaweed
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1451201369989459096}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.844, y: 3.685, z: 2.516}
+  m_LocalPosition: {x: 8.224, y: 3.685, z: -13.683999}
   m_LocalScale: {x: 102.49269, y: 3.394203, z: 102.49269}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -106,3 +107,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: 5ea47a2b85e25344b835bb7a6729c09f, type: 3}
+--- !u!114 &5490841257232509883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451201369989459096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd18669ec8f4c6d4fba0f14a7e67ed9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uncook: {fileID: 1451201369989459096}
+  Cooked: {fileID: 952817194623711188, guid: 359bf3545725e8345bce51bf8fcce48d, type: 3}
+  cookingLocationR: {fileID: 0}
+  cookingLocationL: {fileID: 0}
+  snapRadius: 0.8
+  delayBeforeSwitch: 10
+  movementSpeed: 5
