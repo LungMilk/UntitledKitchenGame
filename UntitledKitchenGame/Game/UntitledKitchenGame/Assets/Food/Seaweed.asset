@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a9c78b14d8de0941837aba74387f47c, type: 3}
-  m_Name: Carrot
+  m_Name: Seaweed
   m_EditorClassIdentifier: 
-  displayName: Carrot
-  displayImage: {fileID: 21300000, guid: 311fe47b89e08fc47921d35aeb7cb078, type: 3}
-  mesh: {fileID: 0}
+  displayName: Seaweed
+  displayImage: {fileID: 0}
+  foodObject: {fileID: 0}
   type: 2
-  pointValue: 10
+  pointValue: 5
   rarity: 95
   stages: 1

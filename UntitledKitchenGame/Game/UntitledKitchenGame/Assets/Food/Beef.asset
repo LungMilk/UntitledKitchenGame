@@ -16,6 +16,6 @@ MonoBehaviour:
   displayImage: {fileID: 21300000, guid: c3696dd0b0c419f4294acd5df329de59, type: 3}
   foodObject: {fileID: 7278994973740632398, guid: 683a6a5271af1814e8d3fe043dfed043, type: 3}
   type: 1
-  pointValue: 10
+  pointValue: 50
   rarity: 70
   stages: 1

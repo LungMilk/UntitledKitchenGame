@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Tuna
   displayImage: {fileID: 21300000, guid: 15e06f12b7fb08b47859bab7f44579e3, type: 3}
-  mesh: {fileID: 0}
+  foodObject: {fileID: 0}
   type: 4
-  pointValue: 10
+  pointValue: 20
   rarity: 20
   stages: 1
