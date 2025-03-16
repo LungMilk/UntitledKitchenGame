@@ -3466,7 +3466,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     hasPerformed: 0
-  - timeToInvoke: 10
+  - timeToInvoke: 3
     timeType: 0
     eventToInvoke:
       m_PersistentCalls:

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4284917285026140484}
   - component: {fileID: 7301382285812540802}
   - component: {fileID: 8871345519289216008}
+  - component: {fileID: 960078429628143989}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -129,6 +130,33 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4068373912626513877, guid: bbb043957ab4c7a4596fd45d741d2cea, type: 3}
+--- !u!54 &960078429628143989
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828513017097682294}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
 --- !u!1 &2052368919994836340
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +170,7 @@ GameObject:
   - component: {fileID: -1747462731460487263}
   - component: {fileID: 7113550892942006087}
   - component: {fileID: 7089070897584653256}
+  - component: {fileID: -3526036535890689197}
   m_Layer: 0
   m_Name: UNcookedPork
   m_TagString: Untagged
@@ -256,7 +285,33 @@ MonoBehaviour:
   cookingLocationL: {fileID: 0}
   snapRadius: 0.8
   delayBeforeSwitch: 10
-  movementSpeed: 5
+--- !u!54 &-3526036535890689197
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052368919994836340}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2652138508260766790
 GameObject:
   m_ObjectHideFlags: 0

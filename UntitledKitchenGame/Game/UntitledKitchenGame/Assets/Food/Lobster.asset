@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Lobster
   displayImage: {fileID: 21300000, guid: 53e11ec0d9906474aac3a1f4e5fbcbe3, type: 3}
-  foodObject: {fileID: 0}
+  foodObject: {fileID: 919132149155446097, guid: aa9ed0d27da43534b9b8265029482373, type: 3}
   type: 4
   pointValue: 35
   rarity: 30

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Seaweed
   displayImage: {fileID: 0}
-  foodObject: {fileID: 0}
+  foodObject: {fileID: 1451201369989459096, guid: c6bcceefc80a9b444b132751544777ec, type: 3}
   type: 2
   pointValue: 5
   rarity: 95

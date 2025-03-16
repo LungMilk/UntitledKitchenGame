@@ -210,7 +210,6 @@ MonoBehaviour:
   cookingLocationL: {fileID: 973517703}
   snapRadius: 0.8
   delayBeforeSwitch: 10
-  movementSpeed: 5
 --- !u!1001 &107273317
 PrefabInstance:
   m_ObjectHideFlags: 0

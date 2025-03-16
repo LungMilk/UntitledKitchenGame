@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 8212525748365866712}
   - component: {fileID: -2844663201243699504}
   - component: {fileID: 5227440681009048341}
+  - component: {fileID: 3516628590307000306}
   m_Layer: 0
   m_Name: TunaFish-UV
   m_TagString: Untagged
@@ -348,4 +349,30 @@ MonoBehaviour:
   cookingLocationL: {fileID: 0}
   snapRadius: 0.8
   delayBeforeSwitch: 10
-  movementSpeed: 5
+--- !u!54 &3516628590307000306
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958716220413817011}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
