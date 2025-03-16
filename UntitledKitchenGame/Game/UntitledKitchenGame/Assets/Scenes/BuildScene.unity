@@ -429,6 +429,10 @@ PrefabInstance:
       value: order generator
       objectReference: {fileID: 0}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
+      propertyPath: scoreManage
+      value: 
+      objectReference: {fileID: 2059959633}
+    - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1025,6 +1029,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8250099382248676192, guid: 46f6a976eddaef5429583274058dd1b3, type: 3}
+      propertyPath: scoreManage
+      value: 
+      objectReference: {fileID: 2059959633}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1721,6 +1729,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: orderGenerator2
       objectReference: {fileID: 0}
+    - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
+      propertyPath: scoreManage
+      value: 
+      objectReference: {fileID: 2059959633}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
       value: 3
@@ -2476,6 +2488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderGenerator2
       objectReference: {fileID: 0}
+    - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
+      propertyPath: scoreManage
+      value: 
+      objectReference: {fileID: 2059959633}
     - target: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
       propertyPath: orderImages.Array.size
       value: 3

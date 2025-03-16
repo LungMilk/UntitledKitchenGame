@@ -34,7 +34,10 @@ public class OrderGenerator : MonoBehaviour
     public void Start()
     {
         GameObject tempObj = GameObject.Find("ScoreManager");
-        scoreManage = tempObj.GetComponent<ScoreManager>();
+        if (tempObj != null)
+        {
+            scoreManage = tempObj.GetComponent<ScoreManager>();
+        }
         GenerateOrder();
     }
 

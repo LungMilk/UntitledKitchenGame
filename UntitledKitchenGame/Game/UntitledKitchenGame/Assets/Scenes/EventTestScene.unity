@@ -382,6 +382,7 @@ MonoBehaviour:
           m_CallState: 2
     hasPerformed: 0
   timer: 0
+  scoreManager: {fileID: 0}
 --- !u!4 &1406494056
 Transform:
   m_ObjectHideFlags: 0
@@ -489,6 +490,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1586161126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586161128}
+  - component: {fileID: 1586161127}
+  - component: {fileID: 1586161129}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1586161127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586161126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c48b731e2c4734db07aeb113511a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis: RHorizontal
+  yAxis: RVertical
+  input: []
+--- !u!4 &1586161128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586161126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.695754, y: -1.8910773, z: 3.9197695}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1586161129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586161126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c48b731e2c4734db07aeb113511a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xAxis: Horizontal
+  yAxis: Vertical
+  input: []
 --- !u!114 &1751699933 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
@@ -509,3 +573,4 @@ SceneRoots:
   - {fileID: 1406494056}
   - {fileID: 874735331}
   - {fileID: 1340292001}
+  - {fileID: 1586161128}
