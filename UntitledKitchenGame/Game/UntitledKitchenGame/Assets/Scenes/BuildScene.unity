@@ -2318,7 +2318,7 @@ MonoBehaviour:
           m_CallState: 2
     hasPerformed: 0
   timer: 0
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 2059959633}
 --- !u!4 &2059959632
 Transform:
   m_ObjectHideFlags: 0
