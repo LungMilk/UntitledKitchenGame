@@ -47,6 +47,10 @@ public class FoodChange : MonoBehaviour
 
     void CheckForSnap()
     {
+        if (cookingLocationL == null || cookingLocationR ==null)
+        {
+            return;
+        }
         // Calculate distances to both cooking stations
         float distanceToR = Vector3.Distance(transform.position, cookingLocationR.position);
         float distanceToL = Vector3.Distance(transform.position, cookingLocationL.position);
