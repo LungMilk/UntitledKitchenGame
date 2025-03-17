@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Pork
   displayImage: {fileID: 21300000, guid: 3e64b7d108fcd1047a0ebc761afcf95b, type: 3}
-  foodObject: {fileID: 919132149155446097, guid: bbb043957ab4c7a4596fd45d741d2cea, type: 3}
+  foodObject: {fileID: 8277317717032586441, guid: 76aa9fa4139ce1548b290cdc275519ac, type: 3}
   type: 1
   pointValue: 15
   rarity: 80
