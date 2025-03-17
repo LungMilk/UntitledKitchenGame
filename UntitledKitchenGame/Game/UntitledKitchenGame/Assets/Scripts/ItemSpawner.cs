@@ -10,40 +10,48 @@ public class ItemSpawner : MonoBehaviour
     public Transform lowerSpawnLimit;
 
     public float spawnRate;
-    float spawnDelay;
-    Vector3 spawnPos;
+    private float spawnDelay;
+    private Vector3 spawnPos;
+
     private void Update()
     {
         spawnConditionals();
     }
+
     protected virtual void spawnConditionals()
     {
-        spawnDelay++;
-        //print(spawnDelay * Time.deltaTime);
-        if (spawnDelay * Time.deltaTime >= spawnRate)
+        spawnDelay += Time.deltaTime; // Increase spawn delay based on time, not frame count
+
+        if (spawnDelay >= spawnRate) // Spawn an object when the time exceeds the spawn rate
         {
             spawnObjects();
-            spawnDelay = 0;
+            spawnDelay = 0f; // Reset the spawn delay after spawning
         }
     }
 
     protected virtual void spawnObjects()
     {
-        //spawning seems to have a weird offset
-        float scalar = Random.Range(0.1f, 0.9f);
-        //print(scalar);
-        //they need to spawn within a set height of the conveyor belt.\
-        float distX = upperSpawnLimit.position.x - lowerSpawnLimit.position.x;
-        float distY = upperSpawnLimit.position.y - lowerSpawnLimit.position.y;
+        // Random scalar between 0 and 1 for each axis
+        float scalarX = Random.Range(0f, 1f);
+        float scalarY = Random.Range(0f, 1f);
+        float scalarZ = Random.Range(0f, 1f); // Add Z-axis randomization
 
-        float modX = (distX * scalar) + lowerSpawnLimit.position.x;
-        float modY = (distY * scalar) + lowerSpawnLimit.position.y;
+        // Calculate the spawn position based on the scalar and limits for each axis
+        float modX = Mathf.Lerp(lowerSpawnLimit.position.x, upperSpawnLimit.position.x, scalarX);
+        float modY = Mathf.Lerp(lowerSpawnLimit.position.y, upperSpawnLimit.position.y, scalarY);
+        float modZ = Mathf.Lerp(lowerSpawnLimit.position.z, upperSpawnLimit.position.z, scalarZ); // Add Z-axis Lerp
 
-        spawnPos = new Vector3(modX, modY, 0);
+        spawnPos = new Vector3(modX, modY, modZ); // Set the spawn position in 3D
 
+        // Select a random food item to spawn
         FoodItem spawnedItem = orderGenerator.SelectRandomItem();
 
+        // Debugging output to ensure position calculations are correct
+        Debug.Log("Spawn Position: " + spawnPos);
+
+        // Instantiate the object at the randomized position
         Instantiate(spawnedItem.foodObject, spawnPos, Quaternion.identity);
-        //Debug.Log(spawnedItem.displayName);
     }
+
+
 }

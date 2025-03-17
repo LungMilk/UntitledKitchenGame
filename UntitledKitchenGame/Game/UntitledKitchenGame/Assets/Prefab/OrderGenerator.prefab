@@ -306,7 +306,7 @@ Transform:
   m_GameObject: {fileID: 2292728504458958124}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.441, y: 5.54, z: 14.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.8384, y: 2.8384, z: 2.8384}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -387,6 +387,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4d345cc9a1cb2ab42bc8e4cf50c924a4, type: 2}
   - {fileID: 11400000, guid: 1910ea69997b64647b2ba2a50c017c62, type: 2}
   - {fileID: 11400000, guid: 5c138e7e638be2349a13e3208f201d3c, type: 2}
+  scoreManage: {fileID: 0}
   itemMax: 3
   onlySelect: 0
 --- !u!65 &1827854803912933816
