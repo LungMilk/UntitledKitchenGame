@@ -153,6 +153,7 @@ public class OrderGenerator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         CheckItemSubmission(other.gameObject);
+        Destroy(other.gameObject);
     }
 
     //please convert the object so it is visible from the save file.
