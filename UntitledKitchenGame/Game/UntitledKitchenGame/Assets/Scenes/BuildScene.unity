@@ -1388,7 +1388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2293960716073026875, guid: 46f6a976eddaef5429583274058dd1b3, type: 3}
       propertyPath: spawnRate
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5852061941420308052, guid: 46f6a976eddaef5429583274058dd1b3, type: 3}
       propertyPath: m_Icon
@@ -2702,7 +2702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49beed3e7c5d63d4ba2ceee1ff82c670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 50
+  pushForce: 20
   pushDirection: {x: 0, y: 0, z: -1}
 --- !u!65 &1212521034
 BoxCollider:

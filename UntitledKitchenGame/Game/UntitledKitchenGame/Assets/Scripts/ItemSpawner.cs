@@ -22,7 +22,11 @@ public class ItemSpawner : MonoBehaviour
     {
         spawnDelay += Time.deltaTime; // Increase spawn delay based on time, not frame count
 
-        if (spawnDelay >= spawnRate) // Spawn an object when the time exceeds the spawn rate
+        // Calculate the delay between spawns based on spawnRate (number of objects per second)
+        float timeBetweenSpawns = 1f / spawnRate;
+
+        // Spawn an object when the time exceeds the time between spawns
+        if (spawnDelay >= timeBetweenSpawns)
         {
             spawnObjects();
             spawnDelay = 0f; // Reset the spawn delay after spawning
