@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Chicken
   displayImage: {fileID: 21300000, guid: 364348806592c044a9ca211ffff15065, type: 3}
-  foodObject: {fileID: 1166170536378028100, guid: c8adc7c562119da42b5974d49525d037, type: 3}
+  foodObject: {fileID: 458097154846401387, guid: 0622f5807ce1e754da7654a4f8b08064, type: 3}
   type: 1
   pointValue: 10
   rarity: 90
