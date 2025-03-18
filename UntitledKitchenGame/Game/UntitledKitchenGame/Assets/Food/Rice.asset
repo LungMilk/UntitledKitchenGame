@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Rice
   displayImage: {fileID: 21300000, guid: ebc916d5dbb6ffb4fa035c45c132062d, type: 3}
-  foodObject: {fileID: 5607153551512532030, guid: 90629983f435ef340a8abc5b76611950, type: 3}
+  foodObject: {fileID: 8271953571260416189, guid: b86f7f1547de80747911dc0158c18629, type: 3}
   type: 3
   pointValue: 40
   rarity: 60

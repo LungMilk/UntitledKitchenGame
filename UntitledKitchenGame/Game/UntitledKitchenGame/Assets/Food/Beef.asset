@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Beef
   displayImage: {fileID: 21300000, guid: c3696dd0b0c419f4294acd5df329de59, type: 3}
-  foodObject: {fileID: 4529175366467671517, guid: f4b07da134c1a6d488626c88a9f589c7, type: 3}
+  foodObject: {fileID: 718651475996913795, guid: 354911d841134614899acaa2ff964abe, type: 3}
   type: 1
   pointValue: 50
   rarity: 70
