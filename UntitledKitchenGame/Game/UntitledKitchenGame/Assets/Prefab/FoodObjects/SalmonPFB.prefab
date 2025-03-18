@@ -80,8 +80,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.8811665, y: 1.6342678, z: 6.6540146}
-  m_Center: {x: 0.09803915, y: 0.8247576, z: 5.3493156}
+  m_Size: {x: 3.8811665, y: 3.03696, z: 6.6540146}
+  m_Center: {x: 0.09803915, y: 1.5261036, z: 5.3493156}
 --- !u!1001 &8927436431402920789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,6 +146,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6822343713258076425, guid: c29bedff0e458334da6e89188526545f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+    - target: {fileID: -6067185528594298527, guid: c29bedff0e458334da6e89188526545f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+    - target: {fileID: -4795165560744122111, guid: c29bedff0e458334da6e89188526545f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+    - target: {fileID: 569169282116888178, guid: c29bedff0e458334da6e89188526545f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
     - target: {fileID: 919132149155446097, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Name
       value: Salmon-UV
