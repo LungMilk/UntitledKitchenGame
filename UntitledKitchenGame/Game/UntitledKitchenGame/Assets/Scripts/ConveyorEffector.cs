@@ -9,7 +9,7 @@ public class ConveyorBelt : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        print($"{other.name} is on the conveyor");
+        //print($"{other.name} is on the conveyor");
         // Check if the object has a "Item" tag (you can set your own tag for items)
         //if (other.CompareTag("Food"))
         //{

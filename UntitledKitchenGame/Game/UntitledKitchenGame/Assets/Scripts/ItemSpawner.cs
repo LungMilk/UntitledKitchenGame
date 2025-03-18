@@ -51,7 +51,7 @@ public class ItemSpawner : MonoBehaviour
         FoodItem spawnedItem = orderGenerator.SelectRandomItem();
 
         // Debugging output to ensure position calculations are correct
-        Debug.Log("Spawn Position: " + spawnPos);
+        //Debug.Log("Spawn Position: " + spawnPos);
 
         // Instantiate the object at the randomized position
         Instantiate(spawnedItem.foodObject, spawnPos, Quaternion.identity);

@@ -20,6 +20,9 @@ public class OrderGenerator : MonoBehaviour
     public ScoreManager scoreManage;
     public int itemMax = 3;
 
+    [SerializeField]
+    private float pointData;
+
     public type onlySelect = new type();
     //maybe we could have the variables change as well depending on what kind of object it is?
     public enum type
@@ -33,23 +36,56 @@ public class OrderGenerator : MonoBehaviour
 
     public void Start()
     {
-        GameObject tempObj = GameObject.Find("ScoreManager");
+        GameObject tempObj = GameObject.Find("EndConManager");
         if (tempObj != null)
         {
             scoreManage = tempObj.GetComponent<ScoreManager>();
         }
         GenerateOrder();
+        
     }
-
+    [System.Serializable]
+    public struct OrderCompletionData
+    {
+        public string type;
+        public string playerPoints;
+        public string pointsFromOrder;
+    }
     private void Update()
     {
         PopulateUI();
+        if (foodItems.Count <= 0)
+        {
+            OrderReset();
+        }
+    }
+    [ContextMenu("Order Reset")]
+    private void OrderReset()
+    {
+            var data = new OrderCompletionData()
+            {
+                type = onlySelect.ToString(),
+                playerPoints = scoreManage.score.ToString(),
+                pointsFromOrder = pointData.ToString(),
+            };
+        TelemetryLogger.Log(this, "order completed", data);
+        foodItems.Clear();
+            GenerateOrder();
     }
 
+    public void OrderPointCalculation()
+    {
+        pointData = 0;
+        foreach (FoodItem item in foodItems)
+        {
+            pointData += item.pointValue;
+        }
+    }
     public void GenerateOrder()
     {
         PopulateUI();
         PopulateOrder();
+        OrderPointCalculation();
     }
 
     //no longer needed but why not keep them
@@ -59,13 +95,13 @@ public class OrderGenerator : MonoBehaviour
         // Adding null checks to avoid errors if the UI elements are not set up
         if (orderCanvas == null)
         {
-            Debug.LogWarning("Order Canvas is not assigned.");
+            //Debug.LogWarning("Order Canvas is not assigned.");
             return;
         }
 
         if (orderText == null || orderImages == null)
         {
-            Debug.LogWarning("UI lists are not assigned.");
+            //Debug.LogWarning("UI lists are not assigned.");
             return;
         }
 
@@ -165,6 +201,7 @@ public class OrderGenerator : MonoBehaviour
         public string requiredObject2;
         public string requiredObject;
     }
+    //we want to record if the player submits the proper item
 
     public void CheckItemSubmission(GameObject receivedObject)
     {
