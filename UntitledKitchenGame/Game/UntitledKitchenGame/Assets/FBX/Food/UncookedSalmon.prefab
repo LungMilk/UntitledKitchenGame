@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8338081047104045028}
   - component: {fileID: 1604519836476187539}
   - component: {fileID: 2720357161397870658}
-  - component: {fileID: 4552809692506906653}
   m_Layer: 0
   m_Name: polySurface3
   m_TagString: Untagged
@@ -84,28 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4552809692506906653
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2437907773384612546}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4164511204261677510, guid: 5012646756b541142862a23c7e63ad1a, type: 3}
 --- !u!1 &2803975171344232548
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,11 +92,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3288305179418208990}
-  - component: {fileID: 5240712231579739558}
   - component: {fileID: 9091278596886598497}
   - component: {fileID: 5477492295368585581}
   - component: {fileID: 3020893372114783312}
   - component: {fileID: 3700773493454476579}
+  - component: {fileID: 4371484387146916922}
   m_Layer: 0
   m_Name: UncookedSalmon
   m_TagString: Food
@@ -146,28 +123,6 @@ Transform:
   - {fileID: 2427865313675593704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &5240712231579739558
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2803975171344232548}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!33 &9091278596886598497
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -263,6 +218,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &4371484387146916922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803975171344232548}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.037455525, y: 0.1726107, z: 0.6700672}
+  m_Center: {x: -0.0065891575, y: 0.005402689, z: 0.1649662}
 --- !u!1 &6182251638426148229
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +250,6 @@ GameObject:
   - component: {fileID: 2804534445470968656}
   - component: {fileID: 4924814584048090994}
   - component: {fileID: 9220991943114929286}
-  - component: {fileID: 4503785364193913121}
   m_Layer: 0
   m_Name: pCube6
   m_TagString: Untagged
@@ -347,28 +322,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4503785364193913121
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6182251638426148229}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6606501483488557099, guid: 5012646756b541142862a23c7e63ad1a, type: 3}
 --- !u!1 &6522324209399149208
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +365,6 @@ GameObject:
   - component: {fileID: 8743472795683078385}
   - component: {fileID: 775120135888760284}
   - component: {fileID: 5617382678369216892}
-  - component: {fileID: 8080775815902587995}
   m_Layer: 0
   m_Name: pCube7
   m_TagString: Untagged
@@ -485,28 +437,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8080775815902587995
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8186658431329030263}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7759331768739107841, guid: 5012646756b541142862a23c7e63ad1a, type: 3}
 --- !u!1 &9104789106551574665
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +448,6 @@ GameObject:
   - component: {fileID: 2427865313675593704}
   - component: {fileID: 2597225686194481482}
   - component: {fileID: 1006876365566486766}
-  - component: {fileID: 5407949560403228057}
   m_Layer: 0
   m_Name: pCube8
   m_TagString: Untagged
@@ -591,25 +520,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5407949560403228057
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9104789106551574665}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6788383922943872000, guid: 5012646756b541142862a23c7e63ad1a, type: 3}
