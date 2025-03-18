@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 6444691595814014649}
   m_Layer: 0
   m_Name: cookedSeaweed1
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,9 +135,9 @@ Transform:
   m_GameObject: {fileID: 952817194623711188}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.27, y: 4.77, z: -20.199999}
-  m_LocalScale: {x: 2.32943, y: 2.32943, z: 2.32943}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6008882688175127592}
   - {fileID: 3007981336584071533}

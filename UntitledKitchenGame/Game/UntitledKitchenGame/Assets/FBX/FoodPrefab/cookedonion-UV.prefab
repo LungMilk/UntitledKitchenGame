@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4559998318526534471}
   m_Layer: 0
   m_Name: cookedonion-UV
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,9 +135,9 @@ Transform:
   m_GameObject: {fileID: 1620409037282193063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.579, y: 3.653, z: -12.590999}
-  m_LocalScale: {x: 11.17305, y: 11.17305, z: 11.17305}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6933786661688576039}
   - {fileID: 9184526210238188303}

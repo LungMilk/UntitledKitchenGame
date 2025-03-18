@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7007146695448921190}
   m_Layer: 0
   m_Name: cookedPork-UV
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 703141394137490761}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.3, y: 3.281, z: -11.529999}
-  m_LocalScale: {x: 12.740417, y: 12.740417, z: 12.740417}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6312023130452930229}

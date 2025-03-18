@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 2121752135479210972}
   m_Layer: 0
   m_Name: cookedTuna-UV
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,8 +241,8 @@ Transform:
   m_GameObject: {fileID: 7066933210557880611}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.849, y: 3.7199998, z: -17.155998}
-  m_LocalScale: {x: 17, y: 17, z: 17}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4343733485504336607}

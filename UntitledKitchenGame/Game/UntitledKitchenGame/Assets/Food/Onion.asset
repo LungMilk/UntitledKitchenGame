@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Onion
   displayImage: {fileID: 21300000, guid: 7c3402a1f19a58c4293e47017e2ea9a6, type: 3}
-  foodObject: {fileID: 919132149155446097, guid: 43f8240bb94d8bd42a357017dd8427d1, type: 3}
+  foodObject: {fileID: 5783055205336014086, guid: 177d563b5edc05c4c8f14b6d84a8e92a, type: 3}
   type: 2
   pointValue: 75
   rarity: 25
