@@ -54,7 +54,8 @@ public class ItemSpawner : MonoBehaviour
         //Debug.Log("Spawn Position: " + spawnPos);
 
         // Instantiate the object at the randomized position
-        Instantiate(spawnedItem.foodObject, spawnPos, Quaternion.identity);
+
+            Instantiate(spawnedItem.foodObjectPrefab, spawnPos, Quaternion.identity);
     }
 
 

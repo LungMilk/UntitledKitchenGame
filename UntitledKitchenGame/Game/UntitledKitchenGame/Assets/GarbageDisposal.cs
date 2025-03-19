@@ -17,7 +17,7 @@ public class GarbageDisposal : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        print("object entered garbage");
+        //print("object entered garbage");
         if(other.gameObject.tag == "Food")
         {
             Destroy(other.gameObject);

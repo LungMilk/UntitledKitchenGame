@@ -8,6 +8,7 @@ public class Cook : MonoBehaviour
     {
         if(other.TryGetComponent<Ingredient>(out Ingredient ing))
         {
+            Debug.Log("Start to cook");
             ing.cook();
         }
         //else

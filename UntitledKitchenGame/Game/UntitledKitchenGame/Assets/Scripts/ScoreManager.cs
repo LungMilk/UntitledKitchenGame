@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
     //delegate function??? but lets keep it strict object reference.
     public TextMeshProUGUI scoreText;
     public EventManager eventManager;
-    public float score;
+    public static float score;
     public float quota;
 
     private void Start()

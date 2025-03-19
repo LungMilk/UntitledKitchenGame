@@ -97,13 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UNcookedMaterial: {fileID: 0}
-  cookedMaterial: {fileID: 0}
-  cookingLocationR: {x: 0, y: 0, z: 0}
-  cookingLocationL: {x: 0, y: 0, z: 0}
-  cookingLocationC: {x: 0, y: 0, z: 0}
-  snapRadius: 5
+  UNcookedMaterial: {fileID: 2100000, guid: 900cd4a40fc0ca847b9820e301d1027f, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 8bf9455524a3dc447962971b16b17781, type: 2}
   delayBeforeSwitch: 10
+  fooditem: {fileID: 11400000, guid: fd5817abbc2d8bb4bbb1806380745a47, type: 2}
 --- !u!1001 &1009747484720227823
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class OrderGenerator : MonoBehaviour
 {
@@ -15,32 +14,30 @@ public class OrderGenerator : MonoBehaviour
 
     public ItemCollection itemDatabase;
 
-    public List<FoodItem> foodItems = new List<FoodItem>();
+    List<FoodItem> foodItems = new List<FoodItem>();
     //being a prefab means the object cannot be scene referenced so we gots to find a score manager
-    public ScoreManager scoreManage;
     public int itemMax = 3;
 
     [SerializeField]
     private float pointData;
 
-    public type onlySelect = new type();
+    public FoodType onlySelect;
     //maybe we could have the variables change as well depending on what kind of object it is?
-    public enum type
+
+    Dictionary<FoodItem, float> probablity = new Dictionary<FoodItem, float>();
+
+    private void Awake()
     {
-        Unlisted,
-        Meat,
-        Grain,
-        Veggie,
-        Fish
+        caculateProbability();
     }
 
-    public void Start()
+    void Start()
     {
-        GameObject tempObj = GameObject.Find("EndConManager");
-        if (tempObj != null)
-        {
-            scoreManage = tempObj.GetComponent<ScoreManager>();
-        }
+        //GameObject tempObj = GameObject.Find("EndConManager");
+        //if (tempObj != null)
+        //{
+        //    scoreManage = tempObj.GetComponent<ScoreManager>();
+        //}
         GenerateOrder();
         
     }
@@ -53,11 +50,11 @@ public class OrderGenerator : MonoBehaviour
     }
     private void Update()
     {
-        PopulateUI();
-        if (foodItems.Count <= 0)
-        {
-            OrderReset();
-        }
+        //PopulateUI();
+        //if (foodItems.Count <= 0)
+        //{
+        //    OrderReset();
+        //}
     }
     [ContextMenu("Order Reset")]
     private void OrderReset()
@@ -65,12 +62,13 @@ public class OrderGenerator : MonoBehaviour
             var data = new OrderCompletionData()
             {
                 type = onlySelect.ToString(),
-                playerPoints = scoreManage.score.ToString(),
+                playerPoints = ScoreManager.score.ToString(),
                 pointsFromOrder = pointData.ToString(),
             };
         TelemetryLogger.Log(this, "order completed", data);
-        foodItems.Clear();
-            GenerateOrder();
+
+        //foodItems.Clear();
+        GenerateOrder();
     }
 
     public void OrderPointCalculation()
@@ -83,8 +81,10 @@ public class OrderGenerator : MonoBehaviour
     }
     public void GenerateOrder()
     {
-        PopulateUI();
         PopulateOrder();
+
+        PopulateUI();
+        
         OrderPointCalculation();
     }
 
@@ -93,64 +93,43 @@ public class OrderGenerator : MonoBehaviour
     void PopulateUI()
     {
         // Adding null checks to avoid errors if the UI elements are not set up
-        if (orderCanvas == null)
+        //if (orderCanvas == null)
+        //{
+        //    //Debug.LogWarning("Order Canvas is not assigned.");
+        //    return;
+        //}
+
+        //if (orderText == null || orderImages == null)
+        //{
+        //    //Debug.LogWarning("UI lists are not assigned.");
+        //    return;
+        //}
+
+        // Initialize order images and texts if not already set
+        Image[] tempImageList = this.GetComponentsInChildren<Image>();
+        TextMeshProUGUI[] tempList = this.GetComponentsInChildren<TextMeshProUGUI>();
+
+        for (int i = 0; i < itemMax; i++)
         {
-            //Debug.LogWarning("Order Canvas is not assigned.");
-            return;
+            orderImages.Add(tempImageList[i]);
+            orderText.Add(tempList[i]);
         }
+        
 
-        if (orderText == null || orderImages == null)
+
+        for (int i = 0; i < itemMax; i++)
         {
-            //Debug.LogWarning("UI lists are not assigned.");
-            return;
-        }
-
-        // Adding checks to avoid exceptions if UI components are not present
-        if (orderCanvas != null && orderText != null && orderImages != null)
-        {
-            // Initialize order images and texts if not already set
-            if (orderText.Count == 0 || orderImages.Count == 0)
+            if (i < foodItems.Count && foodItems[i] != null && orderText[i] != null)
             {
-                Image[] tempImageList = this.GetComponentsInChildren<Image>();
-                TextMeshProUGUI[] tempList = this.GetComponentsInChildren<TextMeshProUGUI>();
-
-                for (int i = 0; i < Mathf.Min(itemMax, tempImageList.Length); i++)
-                {
-                    if (tempImageList[i] != null)
-                        orderImages.Add(tempImageList[i]);
-                }
-
-                for (int i = 0; i < Mathf.Min(itemMax, tempList.Length); i++)
-                {
-                    if (tempList[i] != null)
-                        orderText.Add(tempList[i]);
-                }
+                orderText[i].gameObject.SetActive(true);
+                orderImages[i].gameObject.SetActive(true);
+                orderText[i].text = foodItems[i].displayName;
+                orderImages[i].sprite = foodItems[i].displayImage;
             }
-
-            for (int i = 0; i < orderText.Count; i++)
+            else if (orderText[i] != null)
             {
-                if (i < foodItems.Count && foodItems[i] != null && orderText[i] != null)
-                {
-                    orderText[i].gameObject.SetActive(true);
-                    orderText[i].text = foodItems[i].displayName;
-                }
-                else if (orderText[i] != null)
-                {
-                    orderText[i].gameObject.SetActive(false);
-                }
-            }
-
-            for (int i = 0; i < orderImages.Count; i++)
-            {
-                if (i < foodItems.Count && foodItems[i] != null && orderImages[i] != null)
-                {
-                    orderImages[i].gameObject.SetActive(true);
-                    orderImages[i].sprite = foodItems[i].displayImage;
-                }
-                else if (orderImages[i] != null)
-                {
-                    orderImages[i].gameObject.SetActive(false);
-                }
+                orderText[i].gameObject.SetActive(false);
+                orderImages[i].gameObject.SetActive(false);
             }
         }
     }
@@ -160,18 +139,15 @@ public class OrderGenerator : MonoBehaviour
     [ContextMenu("Populate Order")]
     void PopulateOrder()
     {
-        if (foodItems.Count >= itemMax)
-        {
-            foodItems.Clear();
-        }
+        //if (foodItems.Count >= itemMax)
+        //{
+        //    foodItems.Clear();
+        //}
 
         for (int i = 0; i < itemMax; i++)
         {
             var selectedItem = SelectRandomItem();
-            if (selectedItem != null)
-            {
-                foodItems.Add(selectedItem);
-            }
+            foodItems.Add(selectedItem);
         }
 
         if (foodItems.Count >= itemMax)
@@ -188,8 +164,11 @@ public class OrderGenerator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        CheckItemSubmission(other.gameObject);
-        Destroy(other.gameObject);
+        if (other.TryGetComponent<Ingredient>(out Ingredient ing))
+        {
+            CheckItemSubmission(ing.fooditem);
+            Destroy(other.gameObject);
+        }
     }
 
     //please convert the object so it is visible from the save file.
@@ -203,50 +182,66 @@ public class OrderGenerator : MonoBehaviour
     }
     //we want to record if the player submits the proper item
 
-    public void CheckItemSubmission(GameObject receivedObject)
+    public void CheckItemSubmission(FoodItem submitItem)
     {
         foreach (FoodItem item in foodItems)
         {
-            if (item.foodObject == receivedObject) // Fixed = to == here
+            if (item == submitItem) // Fixed = to == here
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = receivedObject.name
+                    objectName = submitItem.name
                 };
                 TelemetryLogger.Log(this, "Correct Submission", data);
-                scoreManage.score += item.pointValue;
+                ScoreManager.score += item.pointValue;
                 foodItems.Remove(item);
+                if (foodItems.Count == 0)
+                {
+                    OrderReset();
+                    return;
+                }
+                PopulateUI();
                 break; // Item found, break out of the loop
             }
             else
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = receivedObject.name
+                    objectName = submitItem.name
                 };
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
             }
+        }
+        
+    }
+   
+    public void caculateProbability()
+    {
+        int sum = 0;
+        foreach (FoodItem item in itemDatabase.Items)
+        {
+            sum += item.rarity;
+        }
+        var items = itemDatabase.Items;
+        probablity.Add(items[0], items[0].rarity*100f / sum);
+        for (int i = 1; i < items.Count; i++)
+        {
+            probablity.Add(items[i], probablity[items[i-1]] + items[i].rarity * 100f / sum);
         }
     }
 
     public FoodItem SelectRandomItem()
     {
         int randomItem = Random.Range(0, 101);
-
+        
         foreach (FoodItem item in itemDatabase.Items)
         {
-            if (randomItem <= item.rarity)
+            if (randomItem <= probablity[item] && (item.type == onlySelect || onlySelect == FoodType.Unset))
             {
-                if (item.type.ToString() == onlySelect.ToString())
-                {
-                    return item;
-                }
-                else if (onlySelect == type.Unlisted)
-                {
-                    return item;
-                }
+                return item;
             }
         }
+        Debug.LogError("failed to selected a item");
         return null;
     }
 }
