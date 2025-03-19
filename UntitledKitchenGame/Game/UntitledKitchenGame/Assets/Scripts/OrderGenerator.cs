@@ -23,6 +23,7 @@ public class OrderGenerator : MonoBehaviour
 
     [SerializeField]
     private float pointData;
+    public float negativeModifer = 0.5f;
 
     public type onlySelect = new type();
     //maybe we could have the variables change as well depending on what kind of object it is?
@@ -257,6 +258,7 @@ public class OrderGenerator : MonoBehaviour
                 {
                     objectName = receivedObject.name
                 };
+                scoreManage.score -= item.pointValue * negativeModifer;
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
             }
         }
