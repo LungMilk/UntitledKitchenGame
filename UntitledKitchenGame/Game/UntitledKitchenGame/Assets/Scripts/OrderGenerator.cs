@@ -33,6 +33,10 @@ public class OrderGenerator : MonoBehaviour
         Veggie,
         Fish
     }
+    public enum operation
+    {
+        Add,Subtract
+    }
 
     public void Start()
     {
@@ -155,7 +159,13 @@ public class OrderGenerator : MonoBehaviour
         }
     }
 
+    //I want to make a event that adds objects or removes objects from the list
+    public void ChangeFoodCollection(operation op, FoodItem changeObject)
+    {
+        if(op == operation.Add) { itemDatabase.Items.Add(changeObject); }
 
+        if (op == operation.Subtract) { itemDatabase.Items.Remove(changeObject); }
+    }
     // Start is called before the first frame update
     [ContextMenu("Populate Order")]
     void PopulateOrder()
@@ -189,7 +199,10 @@ public class OrderGenerator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         CheckItemSubmission(other.gameObject);
-        Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Food"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 
     //please convert the object so it is visible from the save file.
