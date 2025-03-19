@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6876878008708814349}
   - component: {fileID: 5019664202923551194}
   - component: {fileID: 7560439706686249077}
+  - component: {fileID: 6802562731111551333}
   m_Layer: 0
   m_Name: ChickenPFB
   m_TagString: Food
@@ -84,6 +85,21 @@ CapsuleCollider:
   m_Height: 8.126282
   m_Direction: 2
   m_Center: {x: 0.10233688, y: 1.8059359, z: 1.2008858}
+--- !u!114 &6802562731111551333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458097154846401387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNcookedMaterial: {fileID: 2100000, guid: 8b3ff8dcb149d5b44b4978146ed28baf, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 58ac146c3194cea42bf79ba9b6815bfe, type: 2}
+  delayBeforeSwitch: 10
 --- !u!1001 &5214436246869841785
 PrefabInstance:
   m_ObjectHideFlags: 0

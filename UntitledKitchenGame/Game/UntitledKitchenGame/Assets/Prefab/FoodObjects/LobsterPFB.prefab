@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 535178544869716868}
   - component: {fileID: 6638825585200042555}
   - component: {fileID: 8516151295420804521}
+  - component: {fileID: 6366285799900856468}
   m_Layer: 0
   m_Name: LobsterPFB
   m_TagString: Food
@@ -82,6 +83,25 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6785622, y: 1.5378292, z: 6.4525604}
   m_Center: {x: -0.0057430267, y: 0.26891458, z: -0.69031525}
+--- !u!114 &6366285799900856468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7580948664356962341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNcookedMaterial: {fileID: 2100000, guid: ba61260a5d86bf64fae9c0f1124d95b5, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 3227335fd97261f4bac159752dc04247, type: 2}
+  cookingLocationR: {x: 0, y: 0, z: 0}
+  cookingLocationL: {x: 0, y: 0, z: 0}
+  cookingLocationC: {x: 0, y: 0, z: 0}
+  snapRadius: 5
+  delayBeforeSwitch: 10
 --- !u!1001 &14759478960370366
 PrefabInstance:
   m_ObjectHideFlags: 0
