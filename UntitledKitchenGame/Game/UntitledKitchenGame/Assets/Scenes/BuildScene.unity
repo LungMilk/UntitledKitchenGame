@@ -2175,11 +2175,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45.505, y: -15.514, z: 0}
---- !u!1 &958603351 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2292728504458958124, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
+--- !u!114 &958603353 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2425795573292957298, guid: 662edff5b49240e42beba9f8c5f1f57f, type: 3}
   m_PrefabInstance: {fileID: 1097983492}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559c0dedeefb3d94395b03862cbed21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1029449332
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,18 +4563,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventSequence:
-  - timeToInvoke: 1
-    timeType: 0
+  - timeToInvoke: 30
+    timeType: 1
     eventToInvoke:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 958603351}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 0
+        - m_Target: {fileID: 958603353}
+          m_TargetAssemblyTypeName: OrderGenerator, Assembly-CSharp
+          m_MethodName: AddToFoodCollection
+          m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgument: {fileID: 11400000, guid: 1910ea69997b64647b2ba2a50c017c62, type: 2}
+            m_ObjectArgumentAssemblyTypeName: FoodItem, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 

@@ -14,6 +14,7 @@ public class OrderGenerator : MonoBehaviour
     public List<Image> orderImages = new List<Image>();
 
     public ItemCollection itemDatabase;
+    public List<FoodItem> objectsinDataBase;
 
     public List<FoodItem> foodItems = new List<FoodItem>();
     //being a prefab means the object cannot be scene referenced so we gots to find a score manager
@@ -33,6 +34,7 @@ public class OrderGenerator : MonoBehaviour
         Veggie,
         Fish
     }
+    [System.Serializable]
     public enum operation
     {
         Add,Subtract
@@ -46,6 +48,10 @@ public class OrderGenerator : MonoBehaviour
             scoreManage = tempObj.GetComponent<ScoreManager>();
         }
         GenerateOrder();
+        foreach(FoodItem item in itemDatabase.Items)
+        {
+            objectsinDataBase.Add(item);
+        }
         
     }
     [System.Serializable]
@@ -160,11 +166,25 @@ public class OrderGenerator : MonoBehaviour
     }
 
     //I want to make a event that adds objects or removes objects from the list
-    public void ChangeFoodCollection(operation op, FoodItem changeObject)
+    //I want to make it so in the unityEvent in timed event I can in the inspector drag the order generator object into the timed event, access a method from the order genrator
+    //and give it a parameter. This parameter is a foodItem object which is a scriptable object. I want to modify the referenced items database and add items to it.
+    //so what is happening is these need isolated collections;
+    public void AddToFoodCollection(FoodItem changeObject)
     {
-        if(op == operation.Add) { itemDatabase.Items.Add(changeObject); }
-
-        if (op == operation.Subtract) { itemDatabase.Items.Remove(changeObject); }
+        if(!itemDatabase.Items.Contains(changeObject)){
+            itemDatabase.Items.Add(changeObject);
+            print($"{this.name} has added a {changeObject.displayName}");
+        }
+        else { print("object is already in the collection"); }
+    }
+    public void RemoveFromFoodCollection(FoodItem changeObject)
+    {
+        if (itemDatabase.Items.Contains(changeObject))
+        {
+            itemDatabase.Items.Remove(changeObject);
+            print($"{this.name} has removed a {changeObject.displayName}");
+        }
+        else { print("object does not exist in the collection"); }
     }
     // Start is called before the first frame update
     [ContextMenu("Populate Order")]

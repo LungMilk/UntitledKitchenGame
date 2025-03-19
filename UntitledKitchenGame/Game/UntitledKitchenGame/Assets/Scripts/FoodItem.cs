@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "NewItem.asset", menuName = "Data/Food Item")]
+[System.Serializable]
 public class FoodItem : ScriptableObject
 {
     public string displayName;
