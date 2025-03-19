@@ -11,8 +11,8 @@ public class ConveyorBelt : MonoBehaviour
     {
         //print($"{other.name} is on the conveyor");
         // Check if the object has a "Item" tag (you can set your own tag for items)
-        //if (other.CompareTag("Food"))
-        //{
+        if (other.CompareTag("Food"))
+        {
             // Apply a force to push the object in the desired direction
             Rigidbody rb = other.GetComponent<Rigidbody>();
 
@@ -21,7 +21,7 @@ public class ConveyorBelt : MonoBehaviour
                 // Apply force to the Rigidbody in the specified direction
                 rb.AddForce(pushDirection.normalized * pushForce, ForceMode.Force);
             }
-        //}
+        }
     }
     private void OnDrawGizmos()
     {
