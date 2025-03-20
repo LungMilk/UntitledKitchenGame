@@ -38,7 +38,7 @@ public class OrderGenerator : MonoBehaviour
     [System.Serializable]
     public enum operation
     {
-        Add,Subtract
+        Add, Subtract
     }
 
     public void Start()
@@ -49,11 +49,11 @@ public class OrderGenerator : MonoBehaviour
             scoreManage = tempObj.GetComponent<ScoreManager>();
         }
         GenerateOrder();
-        foreach(FoodItem item in itemDatabase.Items)
+        foreach (FoodItem item in itemDatabase.Items)
         {
             objectsinDataBase.Add(item);
         }
-        
+
     }
     [System.Serializable]
     public struct OrderCompletionData
@@ -73,15 +73,15 @@ public class OrderGenerator : MonoBehaviour
     [ContextMenu("Order Reset")]
     private void OrderReset()
     {
-            var data = new OrderCompletionData()
-            {
-                type = onlySelect.ToString(),
-                playerPoints = scoreManage.score.ToString(),
-                pointsFromOrder = pointData.ToString(),
-            };
+        var data = new OrderCompletionData()
+        {
+            type = onlySelect.ToString(),
+            playerPoints = scoreManage.score.ToString(),
+            pointsFromOrder = pointData.ToString(),
+        };
         TelemetryLogger.Log(this, "order completed", data);
         foodItems.Clear();
-            GenerateOrder();
+        GenerateOrder();
     }
 
     public void OrderPointCalculation()
@@ -172,7 +172,8 @@ public class OrderGenerator : MonoBehaviour
     //so what is happening is these need isolated collections;
     public void AddToFoodCollection(FoodItem changeObject)
     {
-        if(!itemDatabase.Items.Contains(changeObject)){
+        if (!itemDatabase.Items.Contains(changeObject))
+        {
             itemDatabase.Items.Add(changeObject);
             print($"{this.name} has added a {changeObject.displayName}");
         }
@@ -266,27 +267,32 @@ public class OrderGenerator : MonoBehaviour
 
     public FoodItem SelectRandomItem()
     {
-        int randomItem = Random.Range(0, 101);
-        FoodItem closestItem = null;
-        int closestRarityDifference = 100; // Initialize with a large value
+        int randomItem = Random.Range(0, 101); // Random number between 0 and 100
+        List<FoodItem> weightedItems = new List<FoodItem>();
 
+        // Create a list of items weighted by their rarity
         foreach (FoodItem item in itemDatabase.Items)
         {
             // Only consider items that match the 'onlySelect' criteria
             if (item.type.ToString() == onlySelect.ToString() || onlySelect == type.Unlisted)
             {
-                // Calculate the difference between the random item value and the item's rarity
-                int rarityDifference = Mathf.Abs(randomItem - item.rarity);
-
-                // If this item has a closer rarity value to randomItem, update the closest item
-                if (rarityDifference < closestRarityDifference)
+                // Add the item multiple times to the list based on its rarity percentage
+                for (int i = 0; i < item.rarity; i++)
                 {
-                    closestRarityDifference = rarityDifference;
-                    closestItem = item;
+                    weightedItems.Add(item);
                 }
             }
         }
-        return closestItem;
+
+        // If the weightedItems list is empty, return null
+        if (weightedItems.Count == 0)
+        {
+            return null;
         }
+
+        // Select a random item from the weightedItems list
+        int randomIndex = Random.Range(0, weightedItems.Count);
+        return weightedItems[randomIndex];
     }
+}
 
