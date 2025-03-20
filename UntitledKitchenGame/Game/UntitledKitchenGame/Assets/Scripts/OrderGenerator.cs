@@ -267,22 +267,26 @@ public class OrderGenerator : MonoBehaviour
     public FoodItem SelectRandomItem()
     {
         int randomItem = Random.Range(0, 101);
+        FoodItem closestItem = null;
+        int closestRarityDifference = 100; // Initialize with a large value
 
         foreach (FoodItem item in itemDatabase.Items)
         {
-            if (randomItem <= item.rarity)
+            // Only consider items that match the 'onlySelect' criteria
+            if (item.type.ToString() == onlySelect.ToString() || onlySelect == type.Unlisted)
             {
-                if (item.type.ToString() == onlySelect.ToString())
+                // Calculate the difference between the random item value and the item's rarity
+                int rarityDifference = Mathf.Abs(randomItem - item.rarity);
+
+                // If this item has a closer rarity value to randomItem, update the closest item
+                if (rarityDifference < closestRarityDifference)
                 {
-                    return item;
-                }
-                else if (onlySelect == type.Unlisted)
-                {
-                    return item;
+                    closestRarityDifference = rarityDifference;
+                    closestItem = item;
                 }
             }
         }
-        return null;
+        return closestItem;
+        }
     }
-}
 
