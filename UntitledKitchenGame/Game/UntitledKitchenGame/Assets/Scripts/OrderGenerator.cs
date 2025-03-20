@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -26,6 +27,10 @@ public class OrderGenerator : MonoBehaviour
 
     Dictionary<FoodItem, float> probablity = new Dictionary<FoodItem, float>();
 
+    [SerializeField] GameObject MouseOpen;
+    [SerializeField] GameObject MouseClose;
+    [SerializeField] float MouseCloseTime=2f;
+
     private void Awake()
     {
         caculateProbability();
@@ -38,8 +43,8 @@ public class OrderGenerator : MonoBehaviour
         //{
         //    scoreManage = tempObj.GetComponent<ScoreManager>();
         //}
-        GenerateOrder();
-        
+        StartCoroutine(NewCustomer());
+
     }
     [System.Serializable]
     public struct OrderCompletionData
@@ -68,7 +73,7 @@ public class OrderGenerator : MonoBehaviour
         TelemetryLogger.Log(this, "order completed", data);
 
         //foodItems.Clear();
-        GenerateOrder();
+        StartCoroutine(NewCustomer());
     }
 
     public void OrderPointCalculation()
@@ -79,6 +84,17 @@ public class OrderGenerator : MonoBehaviour
             pointData += item.pointValue;
         }
     }
+
+    public IEnumerator NewCustomer()
+    {
+        MouseClose.SetActive(true);
+        MouseOpen.SetActive(false);
+        yield return new WaitForSeconds(MouseCloseTime);
+        GenerateOrder();
+        MouseClose.SetActive(false);
+        MouseOpen.SetActive(true);
+    }
+
     public void GenerateOrder()
     {
         PopulateOrder();
