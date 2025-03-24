@@ -2438,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49beed3e7c5d63d4ba2ceee1ff82c670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushForce: 20
+  pushForce: 15
   pushDirection: {x: 0, y: 0, z: -1}
 --- !u!65 &1212521034
 BoxCollider:
@@ -3750,7 +3750,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     hasPerformed: 0
-  - timeToInvoke: 3
+  - timeToInvoke: 6
     timeType: 0
     eventToInvoke:
       m_PersistentCalls:
