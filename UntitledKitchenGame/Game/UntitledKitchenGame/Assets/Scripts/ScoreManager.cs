@@ -12,8 +12,20 @@ public class ScoreManager : MonoBehaviour
     public EventManager eventManager;
     public float score;
     public float quota;
+    [System.Serializable]
+    public struct pointStatus
+    {
+        //we want to submit the data of the orders change in points and the overall score
+        public string pointValue;
+        public string currentScore;
+    }
     public void AddScore(float points)
     {
+        var data = new pointStatus()
+        {
+            pointValue = points.ToString(),
+            currentScore = score.ToString()
+        };
         StartCoroutine(ShowFloatingScore(points));
     }
 
@@ -28,6 +40,10 @@ public class ScoreManager : MonoBehaviour
     {
         //scoreText.text = $"Score: {score}/{quota}";
         //if (score >quota ) { eventManager.EndGame(); }
+        if (score > quota)
+        {
+            eventManager.EndGame();
+        }
     }
     private IEnumerator ShowFloatingScore(float points)
     {
@@ -41,11 +57,5 @@ public class ScoreManager : MonoBehaviour
         floatingScoreText.gameObject.SetActive(false);
         score += points;
         scoreText.text = $"{score}";
-
-       
-        if (score > quota)
-        {
-            eventManager.EndGame();
-        }
     }
 }

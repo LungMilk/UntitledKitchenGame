@@ -91,6 +91,13 @@ public class OrderGenerator : MonoBehaviour
         {
             pointData += item.pointValue;
         }
+        //dont know if we might need this
+        //var data = new OrderCompletionData()
+        //{
+        //    type = onlySelect.ToString(),
+        //    playerPoints = scoreManage.score.ToString(),
+        //    pointsFromOrder = pointData.ToString(),
+        //};
     }
     public void GenerateOrder()
     {
@@ -213,6 +220,7 @@ public class OrderGenerator : MonoBehaviour
                 requiredObject = foodItems[0].name,
                 requiredObject1 = foodItems[1].name,
                 requiredObject2 = foodItems[2].name,
+                //pointsFromOrder = pointData.ToString(),
             };
             TelemetryLogger.Log(this, "order generated", data);
         }
@@ -246,10 +254,14 @@ public class OrderGenerator : MonoBehaviour
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = receivedObject.name
+                    objectName = receivedObject.name,
+                    requiredObject = foodItems[0].name,
+                    requiredObject1 = foodItems[1].name,
+                    requiredObject2 = foodItems[2].name,
                 };
                 TelemetryLogger.Log(this, "Correct Submission", data);
-                scoreManage.score += item.pointValue;
+                scoreManage.AddScore(item.pointValue);
+                //scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
                 break; // Item found, break out of the loop
             }
@@ -257,9 +269,13 @@ public class OrderGenerator : MonoBehaviour
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = receivedObject.name
+                    objectName = receivedObject.name,
+                    requiredObject = foodItems[0].name,
+                    requiredObject1 = foodItems[1].name,
+                    requiredObject2 = foodItems[2].name,
                 };
-                scoreManage.score -= item.pointValue * negativeModifer;
+                scoreManage.AddScore((-item.pointValue *negativeModifer));
+                //scoreManage.score -= item.pointValue * negativeModifer;
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
             }
         }
