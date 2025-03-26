@@ -252,7 +252,6 @@ public class OrderGenerator : MonoBehaviour
             TelemetryLogger.Log(this, "order generated", data);
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         CheckItemSubmission(other.gameObject);
