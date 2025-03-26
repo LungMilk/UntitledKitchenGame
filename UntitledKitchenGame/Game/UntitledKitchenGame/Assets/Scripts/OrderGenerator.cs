@@ -76,6 +76,7 @@ public class OrderGenerator : MonoBehaviour
         var data = new OrderCompletionData()
         {
             type = onlySelect.ToString(),
+            //how can we get the score now?
             playerPoints = scoreManage.score.ToString(),
             pointsFromOrder = pointData.ToString(),
         };
@@ -250,7 +251,7 @@ public class OrderGenerator : MonoBehaviour
     {
         foreach (FoodItem item in foodItems)
         {
-            if (item.foodObject == receivedObject) // Fixed = to == here
+            if (item.foodObjectPrefab == receivedObject) // Fixed = to == here
             {
                 var data = new ItemSubmitData()
                 {
