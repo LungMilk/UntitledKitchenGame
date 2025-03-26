@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8328854602975881866}
   - component: {fileID: 2866701781870573270}
   - component: {fileID: 5351175512465295230}
+  - component: {fileID: 2865554934808127961}
   m_Layer: 0
   m_Name: SalmonPFB
   m_TagString: Food
@@ -82,6 +83,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.8811665, y: 3.03696, z: 6.6540146}
   m_Center: {x: 0.09803915, y: 1.5261036, z: 5.3493156}
+--- !u!114 &2865554934808127961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7816834013061366243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNcookedMaterial: {fileID: 2100000, guid: cf92506d489388549bc06ce18fcdba26, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 3227335fd97261f4bac159752dc04247, type: 2}
+  delayBeforeSwitch: 10
+  fooditem: {fileID: 11400000, guid: bfd89955008b5694b9a29864ce352a00, type: 2}
 --- !u!1001 &8927436431402920789
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,19 +166,19 @@ PrefabInstance:
     - target: {fileID: -6822343713258076425, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: -6067185528594298527, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: -4795165560744122111, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 569169282116888178, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7bc10a248170aa749a021b96d903c29f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 919132149155446097, guid: c29bedff0e458334da6e89188526545f, type: 3}
       propertyPath: m_Name
       value: Salmon-UV

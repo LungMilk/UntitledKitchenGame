@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5776018263196483259}
   - component: {fileID: 6095362641290933120}
   - component: {fileID: 520670883958662739}
+  - component: {fileID: 7750351986752502350}
   m_Layer: 0
   m_Name: RicePFB
   m_TagString: Food
@@ -82,6 +83,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.1621666, y: 3.414378, z: 5.208144}
   m_Center: {x: -0.03992462, y: 1.151472, z: -0.019120216}
+--- !u!114 &7750351986752502350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8271953571260416189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNcookedMaterial: {fileID: 2100000, guid: 79162e6c35005a14281cd7833d0d08b6, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: 8e44873f13042024d955f08e02c9788b, type: 2}
+  delayBeforeSwitch: 10
+  fooditem: {fileID: 11400000, guid: 4d345cc9a1cb2ab42bc8e4cf50c924a4, type: 2}
 --- !u!1001 &8275482409960677134
 PrefabInstance:
   m_ObjectHideFlags: 0

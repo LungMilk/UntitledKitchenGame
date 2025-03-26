@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9114843965757659118}
   - component: {fileID: 6503450011488165320}
   - component: {fileID: 2936948515449272204}
+  - component: {fileID: 1606902162110116926}
   m_Layer: 0
   m_Name: SeaweedPFB
   m_TagString: Food
@@ -82,6 +83,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1606902162110116926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564955614588852059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcecae547f195244594ee24933c6e19a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UNcookedMaterial: {fileID: 2100000, guid: 6141858dc336b1549ad051d5447ae45a, type: 2}
+  cookedMaterial: {fileID: 2100000, guid: b2da126ef21d2d0428704c1bce0de9ab, type: 2}
+  delayBeforeSwitch: 10
+  fooditem: {fileID: 11400000, guid: 9338d54b00803d14aa1c3eaef53eeac5, type: 2}
 --- !u!1001 &5278995534664903517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149,15 +166,15 @@ PrefabInstance:
     - target: {fileID: -6067185528594298527, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: -3316209038747775882, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: -3035608602465568333, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 919132149155446097, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Name
       value: Seaweed1
@@ -165,23 +182,23 @@ PrefabInstance:
     - target: {fileID: 1170970068873931921, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 2869344807088711131, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 2929640277652407947, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 5901893356585517859, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     - target: {fileID: 7483894711331120201, guid: 901783c43d065634fafaea0a096bf779, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6ad9b04c6004294eb3c8c4600f6721f, type: 2}
+      objectReference: {fileID: -7791486788655378091, guid: 901783c43d065634fafaea0a096bf779, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

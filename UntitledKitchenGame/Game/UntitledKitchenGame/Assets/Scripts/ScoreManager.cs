@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI floatingScoreText;
     public EventManager eventManager;
-    public float score;
+    public static float score;
     public float quota;
     [System.Serializable]
     public struct pointStatus
