@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pork
   m_EditorClassIdentifier: 
   displayName: Pork
-  displayImage: {fileID: 21300000, guid: 3e64b7d108fcd1047a0ebc761afcf95b, type: 3}
+  displayImage: {fileID: 21300000, guid: a62da1696c864ea46bd3cc1ac6f342b4, type: 3}
   foodObjectPrefab: {fileID: 4663963708327313420, guid: 80eac09a76c2b2d4cb63aa28c573f4d7, type: 3}
   type: 1
   pointValue: 15

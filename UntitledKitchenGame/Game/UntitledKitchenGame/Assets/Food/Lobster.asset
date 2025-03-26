@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lobster
   m_EditorClassIdentifier: 
   displayName: Lobster
-  displayImage: {fileID: 21300000, guid: 53e11ec0d9906474aac3a1f4e5fbcbe3, type: 3}
+  displayImage: {fileID: 21300000, guid: 992b35e4285559e41b542ef8728cb440, type: 3}
   foodObjectPrefab: {fileID: 7580948664356962341, guid: 1cfe88357b225f840a32a6592a8e0228, type: 3}
   type: 4
   pointValue: 35
