@@ -1,9 +1,11 @@
+using NodeCanvas.Tasks.Conditions;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class OrderGenerator : MonoBehaviour
 {
@@ -16,18 +18,23 @@ public class OrderGenerator : MonoBehaviour
     public ItemCollection itemDatabase;
     public List<FoodItem> objectsinDataBase;
 
-    public List<FoodItem> foodItems = new List<FoodItem>();
+     List<FoodItem> foodItems = new List<FoodItem>();
     //being a prefab means the object cannot be scene referenced so we gots to find a score manager
-    public ScoreManager scoreManage;
+    public ScoreManager ScoreManager;
     public int itemMax = 3;
 
     [SerializeField]
     private float pointData;
     public float negativeModifer = 0.5f;
 
-    public type onlySelect = new type();
+    [SerializeField] GameObject MouseOpen;
+    [SerializeField] GameObject MouseClose;
+    [SerializeField] float MouseCloseTime = 2f;
+
+    public FoodType onlySelect;
+    //public type onlySelect = new type();
     //maybe we could have the variables change as well depending on what kind of object it is?
-    public enum type
+    public enum FoodType
     {
         Unlisted,
         Meat,
@@ -35,19 +42,28 @@ public class OrderGenerator : MonoBehaviour
         Veggie,
         Fish
     }
+
+    Dictionary<FoodItem, float> probablity = new Dictionary<FoodItem, float>();
+
+    private void Awake()
+    {
+
+        caculateProbability();
+    }
+
     [System.Serializable]
     public enum operation
     {
         Add, Subtract
     }
 
-    public void Start()
+    void Start()
     {
-        GameObject tempObj = GameObject.Find("EndConManager");
-        if (tempObj != null)
-        {
-            scoreManage = tempObj.GetComponent<ScoreManager>();
-        }
+        //GameObject tempObj = GameObject.Find("EndConManager");
+        //if (tempObj != null)
+        //{
+        //    scoreManage = tempObj.GetComponent<ScoreManager>();
+        //}
         GenerateOrder();
         foreach (FoodItem item in itemDatabase.Items)
         {
@@ -64,11 +80,11 @@ public class OrderGenerator : MonoBehaviour
     }
     private void Update()
     {
-        PopulateUI();
-        if (foodItems.Count <= 0)
-        {
-            OrderReset();
-        }
+        //PopulateUI();
+        //if (foodItems.Count <= 0)
+        //{
+        //    OrderReset();
+        //}
     }
     [ContextMenu("Order Reset")]
     private void OrderReset()
@@ -77,7 +93,7 @@ public class OrderGenerator : MonoBehaviour
         {
             type = onlySelect.ToString(),
             //how can we get the score now?
-            playerPoints = scoreManage.score.ToString(),
+            playerPoints = ScoreManager.score.ToString(),
             pointsFromOrder = pointData.ToString(),
         };
         TelemetryLogger.Log(this, "order completed", data);
@@ -100,6 +116,16 @@ public class OrderGenerator : MonoBehaviour
         //    pointsFromOrder = pointData.ToString(),
         //};
     }
+    public IEnumerator NewCustomer()
+    {
+        MouseClose.SetActive(true);
+        MouseOpen.SetActive(false);
+        yield return new WaitForSeconds(MouseCloseTime);
+        GenerateOrder();
+        MouseClose.SetActive(false);
+        MouseOpen.SetActive(true);
+    }
+
     public void GenerateOrder()
     {
         PopulateUI();
@@ -261,7 +287,7 @@ public class OrderGenerator : MonoBehaviour
                     requiredObject2 = foodItems[2].name,
                 };
                 TelemetryLogger.Log(this, "Correct Submission", data);
-                scoreManage.AddScore(item.pointValue);
+                ScoreManager.AddScore(item.pointValue);
                 //scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
                 break; // Item found, break out of the loop
@@ -275,10 +301,25 @@ public class OrderGenerator : MonoBehaviour
                     requiredObject1 = foodItems[1].name,
                     requiredObject2 = foodItems[2].name,
                 };
-                scoreManage.AddScore((-item.pointValue *negativeModifer));
+                ScoreManager.AddScore((-item.pointValue *negativeModifer));
                 //scoreManage.score -= item.pointValue * negativeModifer;
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
             }
+        }
+    }
+
+    public void caculateProbability()
+    {
+        int sum = 0;
+        foreach (FoodItem item in itemDatabase.Items)
+        {
+            sum += item.rarity;
+        }
+        var items = itemDatabase.Items;
+        probablity.Add(items[0], items[0].rarity * 100f / sum);
+        for (int i = 1; i < items.Count; i++)
+        {
+            probablity.Add(items[i], probablity[items[i - 1]] + items[i].rarity * 100f / sum);
         }
     }
 
@@ -291,7 +332,7 @@ public class OrderGenerator : MonoBehaviour
         foreach (FoodItem item in itemDatabase.Items)
         {
             // Only consider items that match the 'onlySelect' criteria
-            if (item.type.ToString() == onlySelect.ToString() || onlySelect == type.Unlisted)
+            if (item.type.ToString() == onlySelect.ToString() || onlySelect == FoodType.Unlisted)
             {
                 // Add the item multiple times to the list based on its rarity percentage
                 for (int i = 0; i < item.rarity; i++)

@@ -13,7 +13,7 @@ public class CookableMeat : MonoBehaviour
 
     [SerializeField] Material UNcookedMaterial;  // Reference to the cooked food material
     [SerializeField] Material cookedMaterial;  // Reference to the cooked food material
-    [SerializeField] float delayBeforeSwitch = 10f; // Delay before switching to the cooked food texture
+    //[SerializeField] float delayBeforeSwitch = 10f; // Delay before switching to the cooked food texture
 
     [SerializeField]
     protected float cookingValue;

@@ -17,5 +17,5 @@ MonoBehaviour:
   foodObjectPrefab: {fileID: 7901598828263134220, guid: 3747838634a2c834ca8f6c52d472fc8c, type: 3}
   type: 2
   pointValue: 75
-  rarity: 25
+  rarity: 100
   stages: 1
