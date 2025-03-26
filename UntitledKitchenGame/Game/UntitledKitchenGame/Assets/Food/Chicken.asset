@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chicken
   m_EditorClassIdentifier: 
   displayName: Chicken
-  displayImage: {fileID: 21300000, guid: 364348806592c044a9ca211ffff15065, type: 3}
+  displayImage: {fileID: 21300000, guid: 14473cfe86e17c6479a36850529e7f65, type: 3}
   foodObjectPrefab: {fileID: 458097154846401387, guid: 0622f5807ce1e754da7654a4f8b08064, type: 3}
   type: 1
   pointValue: 10

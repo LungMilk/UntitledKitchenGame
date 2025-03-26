@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Onion
   m_EditorClassIdentifier: 
   displayName: Onion
-  displayImage: {fileID: 21300000, guid: 7c3402a1f19a58c4293e47017e2ea9a6, type: 3}
+  displayImage: {fileID: 21300000, guid: 57bd92a242e2e7546b0be99c1b2fb606, type: 3}
   foodObjectPrefab: {fileID: 7901598828263134220, guid: 3747838634a2c834ca8f6c52d472fc8c, type: 3}
   type: 2
   pointValue: 75

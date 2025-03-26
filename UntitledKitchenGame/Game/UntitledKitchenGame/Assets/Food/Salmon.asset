@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Salmon
   m_EditorClassIdentifier: 
   displayName: Salmon
-  displayImage: {fileID: 21300000, guid: a67473c38715ab34dba1f597dfa68223, type: 3}
+  displayImage: {fileID: 21300000, guid: 6daa8c12a9714f3429c0c12503b792fd, type: 3}
   foodObjectPrefab: {fileID: 7816834013061366243, guid: 71a922e0827593a47a7684c1a2f5b407, type: 3}
   type: 4
   pointValue: 10
