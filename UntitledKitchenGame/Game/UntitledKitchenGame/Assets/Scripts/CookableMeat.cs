@@ -1,92 +1,104 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+public enum CookState { Uncooked, Cooking, Cooked }
 
 public class CookableMeat : MonoBehaviour
 {
-    //this script will be attached to the object that is cookable
-    //Object needs to handle its Uncooked state, cooking state and cooked state
-    //object needs a cooking value and a cooking max that is represented by seconds to cook
-    //object needs to be able to grab its collider and disable in the different cooked state.
+    public CookState currentState = CookState.Uncooked;
+    public float cookingTime = 0f;
+    public float maxCookingTime = 10f; // Total time to fully cook
+    private float cookingTimer = 0f;
 
+    public Material uncookedMaterial; // Material for uncooked state
+    public Material cookedMaterial; // Material for cooked state
+    private Renderer meatRenderer; // Renderer of the meat object
+    public float cookingProgress = 0f; // Progress of cooking (0 to 1)
 
-    [SerializeField] Material UNcookedMaterial;  // Reference to the cooked food material
-    [SerializeField] Material cookedMaterial;  // Reference to the cooked food material
-    //[SerializeField] float delayBeforeSwitch = 10f; // Delay before switching to the cooked food texture
-
-    [SerializeField]
-    protected float cookingValue;
-    public float cookTime;
-
-    public FoodItem fooditem;
-
-    private Renderer[] foodRenderer; // Reference to the Renderer component of the food
-    private Collider collider;
-    public bool iscooked;
-
-    public foodState state;
-    public enum foodState
-    {
-        cooking,cooked,uncooked
-    }
+    private Rigidbody rb; // Reference to Rigidbody to control gravity
+    public bool isCooking = false; // Flag to prevent multiple objects from being cooked simultaneously
 
     private void Start()
     {
-        try
+        meatRenderer = GetComponent<Renderer>(); // Get the renderer
+        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
+
+        if (meatRenderer != null && uncookedMaterial != null)
         {
-            foodRenderer = GetComponentsInChildren<Renderer>();
-            collider = this.GetComponent<Collider>();
-            changeMatierial(UNcookedMaterial);
-        }
-        catch (SystemException e)
-        {
-            Debug.LogError("can't find render\n" + e.Message);
-        }
-    }
-    private void Update()
-    {
-        if (cookingValue >= cookTime)
-        {
-            iscooked = true;
-            state = foodState.cooked;
+            meatRenderer.material = uncookedMaterial; // Start with uncooked material
         }
 
-        if(state == foodState.uncooked)
+        if (rb != null)
         {
-            Uncooked();
-        }
-        else if(state == foodState.cooking)
-        {
-            Cooking();
-        }
-        else if (state == foodState.cooked)
-        {
-            Cooked();
+            rb.useGravity = false; // Disable gravity at the start
         }
     }
-    void Uncooked()
+
+    private void Update()
     {
-        collider.enabled = true;
-        changeMatierial(UNcookedMaterial);
-    }
-    void Cooked()
-    {
-        collider.enabled = true;
-        iscooked = true;
-        changeMatierial(cookedMaterial);
-    }
-    void Cooking()
-    {
-        collider.enabled = false;
-        cookingValue += Time.deltaTime;
-        //Material.Lerp();
-    }
-    void changeMatierial(Material material)
-    {
-        foreach (var render in foodRenderer)
+        if (currentState == CookState.Cooking && isCooking)
         {
-            render.material = material;
+            // Update cooking timer
+            cookingTimer += Time.deltaTime;
+            cookingProgress = Mathf.Clamp01(cookingTimer / maxCookingTime); // Normalize cooking progress (0 to 1)
+
+            // Lerp the material based on cooking progress
+            LerpMaterial(cookingProgress);
+
+            if (cookingTimer >= maxCookingTime)
+            {
+                currentState = CookState.Cooked;
+                cookingProgress = 1f; // Ensure it's fully cooked
+                OnCooked();
+            }
+        }
+    }
+
+    // Function to smoothly lerp between uncooked and cooked materials
+    private void LerpMaterial(float progress)
+    {
+        if (meatRenderer != null)
+        {
+            // Lerp between uncooked and cooked materials based on cooking progress
+            meatRenderer.material.Lerp(uncookedMaterial, cookedMaterial, progress);
+        }
+    }
+
+    // Called when cooking is complete
+    private void OnCooked()
+    {
+        isCooking = false; // Stop the cooking process
+        rb.useGravity = true; // Re-enable gravity after cooking
+        SetCollisionsEnabled(true);
+        Debug.Log("Meat is fully cooked!");
+    }
+
+    // Start cooking with additional time
+    public void StartCooking(float extraCookingTime)
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+        Debug.Log("cooking");
+        if (currentState == CookState.Uncooked && !isCooking) // Prevent cooking if already in progress
+        {
+            currentState = CookState.Cooking;
+            isCooking = true; // Set flag to prevent multiple cooking
+            cookingTimer = 0f;
+            maxCookingTime += extraCookingTime; // Increase the cooking time if affected by the grill
+
+            if (rb != null)
+            {
+                rb.useGravity = false; // Disable gravity while cooking
+            }
+        }
+    }
+
+    // Enable or disable collisions for the meat object
+    public void SetCollisionsEnabled(bool enabled)
+    {
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = enabled;
         }
     }
 }

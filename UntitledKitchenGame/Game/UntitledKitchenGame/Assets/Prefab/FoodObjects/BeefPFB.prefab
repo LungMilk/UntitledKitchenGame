@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5556974571007138505}
   - component: {fileID: 5167725249608441969}
   - component: {fileID: -7996579691208952303}
+  - component: {fileID: 7392181734540683355}
   m_Layer: 0
   m_Name: BeefPFB
   m_TagString: Food
@@ -99,6 +100,21 @@ MonoBehaviour:
   cookedMaterial: {fileID: 2100000, guid: 8b3ff8dcb149d5b44b4978146ed28baf, type: 2}
   delayBeforeSwitch: 10
   fooditem: {fileID: 11400000, guid: 5c138e7e638be2349a13e3208f201d3c, type: 2}
+--- !u!114 &7392181734540683355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331194966498747954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611fa834ccf3e634cac508cec87a9934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  cookingTime: 0
+  maxCookingTime: 10
 --- !u!1001 &7142251446231500186
 PrefabInstance:
   m_ObjectHideFlags: 0

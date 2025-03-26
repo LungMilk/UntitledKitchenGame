@@ -1,44 +1,71 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GrillSnapping : MonoBehaviour
+public class Grill : MonoBehaviour
 {
-    //grill needs to find a nearby object that is cookable,
-    //grab the object and disable its colliders or put the object in the cooking state
-    //lerp its position to the center transform and prevent otehr objects from being attached
-    //increase its cooking value
-    //once cooking value is at max enable its colliders and disengage the lock
+    public float detectionRadius = 5f;
+    public Transform anchorPosition; // The position where the object should be moved to on the grill
+    public float cookingTimeIncrease = 5f; // Additional time added to the object's cooking time by the grill
+    public LayerMask cookableLayerMask;
+    public AnimationCurve movementCurve; // The curve that defines the movement speed over time
 
-    //need a collider that is detecting stuff via a layer mask of food objects
-    public Collider detectorCollider;
-    public float cookingRadius;
-    public LayerMask objectsToCook;
-    // Start is called before the first frame update
-    void Start()
+
+    public void Start()
     {
-        detectorCollider = this.GetComponent<Collider>();
+        anchorPosition = this.transform;
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Collider[] detectedObjects = Physics.OverlapSphere(this.gameObject.transform.position,cookingRadius,objectsToCook);
-        if (detectedObjects[0].gameObject.GetComponent<CookableMeat>())
+        // Perform a check for any cookable objects within the detection radius
+        Collider[] detectedObjects = Physics.OverlapSphere(transform.position, detectionRadius, cookableLayerMask);
+
+        foreach (Collider detected in detectedObjects)
         {
-            CookableMeat targetObj = detectedObjects[0].gameObject.GetComponent<CookableMeat>();
-            targetObj.state = CookableMeat.foodState.cooking;
-            LerpPosToAnchor(detectedObjects[0].gameObject.transform);
+            // Check if the detected object is a cookable object
+            CookableMeat cookable = detected.GetComponent<CookableMeat>();
+            if (cookable != null && cookable.currentState == CookState.Uncooked)
+            {
+                // Disable collisions with the uncooked object
+                cookable.SetCollisionsEnabled(false);
+
+                // Start moving the object to the grill anchor position
+                StartCoroutine(MoveObjectToGrillAnchor(detected.transform, anchorPosition.position));
+
+                // Start cooking process
+                cookable.StartCooking(cookingTimeIncrease);
+            }
         }
     }
-    void LerpPosToAnchor(Transform target)
+    public IEnumerator MoveObjectToGrillAnchor(Transform objectTransform, Vector3 targetPosition)
     {
-        if (target.position != this.transform.position)
-        {
-            float t = 0;
-            t += Time.deltaTime;
-            target.position = Vector3.Lerp(target.position, this.transform.position, t);
-        }
-    }
+        float moveTime = 2f; // Total time to move to the target position
+        float elapsedTime = 0f;
 
+        // Optionally, disable gravity while moving
+        Rigidbody rb = objectTransform.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.useGravity = false; // Disable gravity during movement
+        }
+
+        while (elapsedTime < moveTime)
+        {
+            // Evaluate the curve at the current time fraction (elapsedTime / moveTime)
+            float curveValue = movementCurve.Evaluate(elapsedTime / moveTime);
+
+            // Lerp the position based on the curve value (smoothing)
+            objectTransform.position = Vector3.Lerp(objectTransform.position, targetPosition, curveValue);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the object reaches the target position
+        objectTransform.position = targetPosition;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
 }
