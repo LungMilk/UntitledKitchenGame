@@ -259,6 +259,7 @@ public class OrderGenerator : MonoBehaviour
         if (other.gameObject.CompareTag("Food"))
         {
             Destroy(other.gameObject);
+            StartCoroutine(NewCustomer());
         }
     }
 
