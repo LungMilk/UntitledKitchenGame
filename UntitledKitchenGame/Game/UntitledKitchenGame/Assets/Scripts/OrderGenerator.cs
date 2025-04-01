@@ -12,6 +12,7 @@ public class OrderGenerator : MonoBehaviour
     public Canvas orderCanvas;
     public List<TextMeshProUGUI> orderText = new List<TextMeshProUGUI>();
     public List<Image> orderImages = new List<Image>();
+    public ScoreManager scoreManager;
 
     public ItemCollection itemDatabase;
 
@@ -67,7 +68,7 @@ public class OrderGenerator : MonoBehaviour
             var data = new OrderCompletionData()
             {
                 type = onlySelect.ToString(),
-                playerPoints = ScoreManager.score.ToString(),
+                playerPoints = scoreManager.score.ToString(),
                 pointsFromOrder = pointData.ToString(),
             };
         TelemetryLogger.Log(this, "order completed", data);
@@ -206,10 +207,13 @@ public class OrderGenerator : MonoBehaviour
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = submitItem.name
+                    objectName = submitItem.name,
+                        requiredObject = foodItems[0].name,
+                    requiredObject1 = foodItems[1].name,
+                    requiredObject2 = foodItems[2].name,
                 };
                 TelemetryLogger.Log(this, "Correct Submission", data);
-                ScoreManager.score += item.pointValue;
+                scoreManager.AddScore(item.pointValue);
                 foodItems.Remove(item);
                 if (foodItems.Count == 0)
                 {
@@ -223,9 +227,13 @@ public class OrderGenerator : MonoBehaviour
             {
                 var data = new ItemSubmitData()
                 {
-                    objectName = submitItem.name
+                    objectName = submitItem.name,
+                    requiredObject = foodItems[0].name,
+                    requiredObject1 = foodItems[1].name,
+                    requiredObject2 = foodItems[2].name,
                 };
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
+                scoreManager.AddScore(-item.pointValue * 0.5f);
             }
         }
         
