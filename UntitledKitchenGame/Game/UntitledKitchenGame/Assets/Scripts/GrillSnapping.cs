@@ -32,15 +32,14 @@ public class Grill : MonoBehaviour
                 cookable.SetCollisionsEnabled(false);
 
                 // Start moving the object to the grill anchor position
-                StartCoroutine(MoveObjectToGrillAnchor(detected.transform, anchorPosition.position));
-
+                MoveObjectToGrillAnchor(detected.transform, anchorPosition.position);
                 // Start cooking process
                 cookable.StartCooking(cookingTimeIncrease);
             }
         }
     }
     }
-    public IEnumerator MoveObjectToGrillAnchor(Transform objectTransform, Vector3 targetPosition)
+    public void MoveObjectToGrillAnchor(Transform objectTransform, Vector3 targetPosition)
     {
         float moveTime = 2f; // Total time to move to the target position
         float elapsedTime = 0f;
@@ -61,7 +60,6 @@ public class Grill : MonoBehaviour
             objectTransform.position = Vector3.Lerp(objectTransform.position, targetPosition, curveValue);
 
             elapsedTime += Time.deltaTime;
-            yield return null;
         }
 
         // Ensure the object reaches the target position
