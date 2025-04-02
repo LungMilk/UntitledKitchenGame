@@ -4,6 +4,7 @@ public enum CookState { Uncooked, Cooking, Cooked }
 
 public class CookableMeat : MonoBehaviour
 {
+    public TimerUI timer;
     public CookState currentState = CookState.Uncooked;
     public float cookingTime = 0f;
     public float maxCookingTime = 10f; // Total time to fully cook
@@ -19,6 +20,10 @@ public class CookableMeat : MonoBehaviour
 
     private void Start()
     {
+        timer = GetComponent<TimerUI>();
+        timer.Duration = maxCookingTime;
+        timer.ResetUI();
+        timer.ChangeVisiblity();
         meatRenderer = GetComponent<Renderer>(); // Get the renderer
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
 
@@ -73,10 +78,16 @@ public class CookableMeat : MonoBehaviour
     }
 
     // Start cooking with additional time
+    [ContextMenu("startCooking")]
+    public void debugCook()
+    {
+        StartCooking(3);
+    }
     public void StartCooking(float extraCookingTime)
     {
         rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-
+        timer.ChangeVisiblity();
+        timer.Begin();
         Debug.Log("cooking");
         if (currentState == CookState.Uncooked && !isCooking) // Prevent cooking if already in progress
         {

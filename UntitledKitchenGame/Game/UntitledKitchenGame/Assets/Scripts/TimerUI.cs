@@ -8,21 +8,26 @@ public class TimerUI : MonoBehaviour
 {
     public Image fillUI;
 
-    public int Duration;
-    public int remainingDuration;
+    public float Duration;
+    public float remainingDuration;
 
     // Start is called before the first frame update
-    void Start()
+    public void ChangeVisiblity()
     {
-        Begin(Duration);
-    }
-
-    private void Begin(int second)
+        fillUI.enabled = !fillUI.enabled;
+    } 
+    [ContextMenu("Begin")]
+    public void Begin()
     {
-        remainingDuration = second;
+        remainingDuration = Duration;
         StartCoroutine(UpdateTimer());
     }
 
+    [ContextMenu("REesetUI")]
+    public void ResetUI()
+    {
+        remainingDuration = Duration;
+    }
     private IEnumerator UpdateTimer()
     {
         while (remainingDuration >= 0)
@@ -31,12 +36,6 @@ public class TimerUI : MonoBehaviour
             remainingDuration--;
             yield return new WaitForSeconds(1f);
         }
-        onEnd();
-    }
-
-    private void onEnd()
-    {
-        fillUI.color = Color.red;
     }
 }
 

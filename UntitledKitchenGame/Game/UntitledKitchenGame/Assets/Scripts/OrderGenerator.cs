@@ -18,7 +18,7 @@ public class OrderGenerator : MonoBehaviour
     public ItemCollection itemDatabase;
     public List<FoodItem> objectsinDataBase;
 
-     List<FoodItem> foodItems = new List<FoodItem>();
+    public List<FoodItem> foodItems = new List<FoodItem>();
     //being a prefab means the object cannot be scene referenced so we gots to find a score manager
     public ScoreManager ScoreManager;
     public int itemMax = 3;
