@@ -24,7 +24,7 @@ public class CookableMeat : MonoBehaviour
         timer.Duration = maxCookingTime;
         timer.ResetUI();
         timer.ChangeVisiblity();
-        meatRenderer = GetComponent<Renderer>(); // Get the renderer
+        meatRenderer = GetComponentInChildren<Renderer>(); // Get the renderer
         rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
 
         if (meatRenderer != null && uncookedMaterial != null)
@@ -34,7 +34,7 @@ public class CookableMeat : MonoBehaviour
 
         if (rb != null)
         {
-            rb.useGravity = false; // Disable gravity at the start
+            rb.useGravity = true; // Disable gravity at the start
         }
     }
 
@@ -73,6 +73,7 @@ public class CookableMeat : MonoBehaviour
     {
         isCooking = false; // Stop the cooking process
         rb.useGravity = true; // Re-enable gravity after cooking
+        meatRenderer.material = cookedMaterial;
         SetCollisionsEnabled(true);
         Debug.Log("Meat is fully cooked!");
     }
@@ -81,7 +82,7 @@ public class CookableMeat : MonoBehaviour
     [ContextMenu("startCooking")]
     public void debugCook()
     {
-        StartCooking(3);
+        StartCooking(1);
     }
     public void StartCooking(float extraCookingTime)
     {

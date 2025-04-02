@@ -8,7 +8,7 @@ public class Grill : MonoBehaviour
     public float cookingTimeIncrease = 5f; // Additional time added to the object's cooking time by the grill
     public LayerMask cookableLayerMask;
     public AnimationCurve movementCurve; // The curve that defines the movement speed over time
-
+    private bool anchored;
 
     public void Start()
     {
@@ -17,14 +17,17 @@ public class Grill : MonoBehaviour
     private void Update()
     {
         // Perform a check for any cookable objects within the detection radius
+        if (!anchored) { 
         Collider[] detectedObjects = Physics.OverlapSphere(transform.position, detectionRadius, cookableLayerMask);
 
         foreach (Collider detected in detectedObjects)
         {
             // Check if the detected object is a cookable object
             CookableMeat cookable = detected.GetComponent<CookableMeat>();
+            print(cookable.name);
             if (cookable != null && cookable.currentState == CookState.Uncooked)
             {
+                anchored = true;
                 // Disable collisions with the uncooked object
                 cookable.SetCollisionsEnabled(false);
 
@@ -35,6 +38,7 @@ public class Grill : MonoBehaviour
                 cookable.StartCooking(cookingTimeIncrease);
             }
         }
+    }
     }
     public IEnumerator MoveObjectToGrillAnchor(Transform objectTransform, Vector3 targetPosition)
     {
