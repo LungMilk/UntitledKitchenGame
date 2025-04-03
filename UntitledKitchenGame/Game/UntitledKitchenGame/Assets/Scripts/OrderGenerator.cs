@@ -9,6 +9,10 @@ using static UnityEditor.Progress;
 
 public class OrderGenerator : MonoBehaviour
 {
+    public AudioSource SourceOrdered;
+    public AudioSource SourceWrongO;
+    public AudioSource SourceScored;
+
     //this item will return a set amount of orders and we can modify it to be either focused on orders or all items.
     //for now we will make this able to set the UI elements to their respective texts.
     public Canvas orderCanvas;
@@ -131,6 +135,7 @@ public class OrderGenerator : MonoBehaviour
         PopulateUI();
         PopulateOrder();
         OrderPointCalculation();
+        SourceOrdered.Play();
     }
 
     //no longer needed but why not keep them
@@ -290,6 +295,7 @@ public class OrderGenerator : MonoBehaviour
                 ScoreManager.AddScore(item.pointValue);
                 //scoreManage.score += item.pointValue;
                 foodItems.Remove(item);
+                SourceScored.Play();
                 break; // Item found, break out of the loop
             }
             else
@@ -304,6 +310,7 @@ public class OrderGenerator : MonoBehaviour
                 ScoreManager.AddScore((-item.pointValue *negativeModifer));
                 //scoreManage.score -= item.pointValue * negativeModifer;
                 TelemetryLogger.Log(this, "Incorrect Submission", data);
+                SourceWrongO.Play();
             }
         }
     }
