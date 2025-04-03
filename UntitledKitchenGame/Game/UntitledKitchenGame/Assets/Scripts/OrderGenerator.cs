@@ -161,14 +161,14 @@ public class OrderGenerator : MonoBehaviour
             // Initialize order images and texts if not already set
             if (orderText.Count == 0 || orderImages.Count == 0)
             {
-                Image[] tempImageList = this.GetComponentsInChildren<Image>();
+                //Image[] tempImageList = this.GetComponentsInChildren<Image>();
                 TextMeshProUGUI[] tempList = this.GetComponentsInChildren<TextMeshProUGUI>();
 
-                for (int i = 0; i < Mathf.Min(itemMax, tempImageList.Length); i++)
-                {
-                    if (tempImageList[i] != null)
-                        orderImages.Add(tempImageList[i]);
-                }
+                //for (int i = 0; i < Mathf.Min(itemMax, tempImageList.Length); i++)
+                //{
+                //    if (tempImageList[i] != null)
+                //        orderImages.Add(tempImageList[i]);
+               // }
 
                 for (int i = 0; i < Mathf.Min(itemMax, tempList.Length); i++)
                 {
@@ -184,10 +184,10 @@ public class OrderGenerator : MonoBehaviour
                     orderText[i].gameObject.SetActive(true);
                     orderText[i].text = foodItems[i].displayName;
                 }
-                else if (orderText[i] != null)
-                {
-                    orderText[i].gameObject.SetActive(false);
-                }
+                //else if (orderText[i] != null)
+                //{
+                //    orderText[i].gameObject.SetActive(false);
+                //}
             }
 
             for (int i = 0; i < orderImages.Count; i++)
