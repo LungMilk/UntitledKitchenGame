@@ -20,6 +20,11 @@ public class ScoreManager : MonoBehaviour
         public string pointValue;
         public string currentScore;
     }
+    [ContextMenu("Add points")]
+    public void ScoreHistCheck()
+    {
+        AddScore(Random.Range(-100,100));
+    }
     public void AddScore(float points)
     {
         var data = new pointStatus()
