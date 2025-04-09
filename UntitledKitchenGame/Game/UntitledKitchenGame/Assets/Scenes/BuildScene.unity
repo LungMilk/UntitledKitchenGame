@@ -340,6 +340,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168468200443709765, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
+      propertyPath: ScoreManager
+      value: 
+      objectReference: {fileID: 2059959633}
     - target: {fileID: 4098548593443984883, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
       propertyPath: _camera
       value: 
@@ -2349,6 +2353,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168468200443709765, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
+      propertyPath: ScoreManager
+      value: 
+      objectReference: {fileID: 2059959633}
     - target: {fileID: 4098548593443984883, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
       propertyPath: _camera
       value: 
@@ -4295,6 +4303,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168468200443709765, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
+      propertyPath: ScoreManager
+      value: 
+      objectReference: {fileID: 2059959633}
     - target: {fileID: 4098548593443984883, guid: 74879bf4ab4a33a4a8c4b7f17c89b0cd, type: 3}
       propertyPath: _camera
       value: 
