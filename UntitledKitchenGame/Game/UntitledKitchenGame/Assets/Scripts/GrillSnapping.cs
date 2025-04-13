@@ -41,7 +41,7 @@ public class Grill : MonoBehaviour
     }
     public void MoveObjectToGrillAnchor(Transform objectTransform, Vector3 targetPosition)
     {
-        float moveTime = 2f; // Total time to move to the target position
+        float moveTime = 5f; // Total time to move to the target position
         float elapsedTime = 0f;
 
         // Optionally, disable gravity while moving
